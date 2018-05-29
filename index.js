@@ -216,8 +216,16 @@ var persone = [{
         class: "avatar",
         toppp: '400px'
     }
+    },{
+        nome: "Felice",
+        cognome: "Severo",
+        fiscale: "SBB",
+        img: "img/severo.jpg",
+        style: {
+            class: "avatar",
+            toppp: '400px'
+        } 
     }];
-
     var theme = [{
        nome: 'Default',
        style: {
@@ -480,7 +488,7 @@ var ChangeTheme = function(){
             
 
             tema = themeSelected;
-            console.log("colore = ", colore);
+            //console.log("colore = ", colore);
             personeDOMChildren[i].style = colore;
         }
     }
@@ -534,7 +542,7 @@ for (var i = 0; i < arrayOfImage.length; i++) {
     divimage_i.value = arrayOfImage[i].value;*/
     
 
-//------------------------------>controllare perchè non si vede l'immagine nonostante ci sia il percorso <-----------------------------------------------------
+//------------------------------>controllare perchè non passa il tema nella funzione  <-----------------------------------------------------
 }
 
 
