@@ -2,88 +2,76 @@ class Server {
 
     getPersone() {
         return [{
-            nome: "Francesco",
-            cognome: "Ferrante",
-            fiscale: "AAB",
-            img: "img/ferrante.jpg",
-            style: {
-        
-                class:"avatar",
-                toppp: '100px'
-            }
+                nome: "Francesco",
+                cognome: "Ferrante",
+                fiscale: "AAB",
+                img: "img/ferrante.jpg",
+                style: {
+            
+                    class:"avatar",
+                }
             }, {
-            nome: "Franco",
-            cognome: "Cason",
-            fiscale: "AAC",
-            img: "img/cason.png",
-        
-            style: {
-                class:"avatar",
-                toppp: '200px'
-            }
+                nome: "Franco",
+                cognome: "Cason",
+                fiscale: "AAC",
+                img: "img/cason.png",
+                style: {
+                    class:"avatar",
+                }
             }, {
-            nome: "Luigi",
-            cognome: "Rossi",
-            fiscale: "QAB",
-            img: "img/rossi.jpg",
-        
-            style: {
-            class:"avatar",
-            toppp: "300px"
-            }
+                nome: "Luigi",
+                cognome: "Rossi",
+                fiscale: "QAB",
+                img: "img/rossi.jpg",
+                style: {
+                    class:"avatar",
+                }
             }, {
-            nome: "Anna",
-            cognome: "Bianchi",
-            fiscale: "ABB",
-            img: "img/bianchi.jpg",
-        
-            style: {
-                class: "avatar",
-                toppp: '400px'
+                nome: "Anna",
+                cognome: "Bianchi",
+                fiscale: "ABB",
+                img: "img/bianchi.jpg",
+                style: {
+                    class: "avatar",
+                }
+            },
+            {
+                nome: "Carla",
+                cognome: "Neri",
+                fiscale: "ZBB",
+                img: "img/neri.jpeg",
+            
+                style: {
+                    class: "avatar",
             }
             },
             {
-            nome: "Carla",
-            cognome: "Neri",
-            fiscale: "ZBB",
-            img: "img/neri.jpeg",
-        
-            style: {
-                class: "avatar",
-                toppp: '400px'
-            }
+                nome: "Mario",
+                cognome: "Verdi",
+                fiscale: "QWB",
+                img: "img/verdi.jpeg",
+                style: {
+                    class: "avatar",
+                }
             },
             {
-            nome: "Mario",
-            cognome: "Verdi",
-            fiscale: "QWB",
-            img: "img/verdi.jpeg",
-        
-            style: {
-                class: "avatar",
-                toppp: '400px'
-            }
+                nome: "Sara",
+                cognome: "Marroni",
+                fiscale: "MBB",
+                img: "img/marroni.jpg",
+            
+                style: {
+                    class: "avatar",
+                }
             },
             {
-            nome: "Sara",
-            cognome: "Marroni",
-            fiscale: "MBB",
-            img: "img/marroni.jpg",
-        
-            style: {
-                class: "avatar",
-                toppp: '400px'
-            }
-            },
-            {
-            nome: "Guido",
-            cognome: "Piano",
-            fiscale: "PBB",
-            img: "img/piano.jpg",
-            style: {
-                class: "avatar",
-                toppp: '400px'
-            }
+                nome: "Guido",
+                cognome: "Piano",
+                fiscale: "PBB",
+                img: "img/piano.jpg",
+                style: {
+                    class: "avatar",
+                }
             },{
                 nome: "Felice",
                 cognome: "Severo",
