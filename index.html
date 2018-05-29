@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Page Title1</title>
+    <title>Page Title11</title>
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
@@ -13,26 +13,15 @@
 
     <h1 class="prova">CHANGE COLOR</h1>
 
-    <div class="row">
-        <div id="colors" class="tabella_colori">
-            
-            
-        </div>
-        <div id="persone" class="vettore_persone">
-
-
-        </div>
+    <div class="flex_container">
+        <div id="colors" class="colori"></div>
+        <div id="persone" class="persone"></div>
     </div>
 
 </body>
 
 <script>
     /******************************* VETTORE COLORE *******************************************/
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of f3004c8... versione funzionante
-var
     var colors = [{
 
             /***************************Prima colonna********************/
@@ -78,39 +67,36 @@ var
         {
             value: "Pink",
             style: {
-                class: "ciao",
-                top: "48px"
+                class: "elem_tabella_colori"
             }
         }, {
             value: "Blue",
             style: {
-                class: "ciao",
-                top: "128px",
-                color: "white"
+                class: "elem_tabella_colori"
             }
         }, {
             value: "Salmon",
             style: {
-                class: "ciao",
-                top: "208px"
+                class: "elem_tabella_colori"
+               
             }
         }, {
             value: "Lime",
             style: {
-                class: "ciao",
-                top: "288px"
+                class: "elem_tabella_colori"
+               
             }
         }, {
             value: "Beige",
             style: {
-                class: "ciao",
-                top: "368px"
+                class: "elem_tabella_colori"
+              
             }
         }, {
             value: "Grey",
             style: {
-                class: "ciao",
-                top: "448px"
+                class: "elem_tabella_colori"
+               
             }
         },
 
@@ -121,45 +107,53 @@ var
         {
             value: "Navy",
             style: {
-                class: "elem_tabella_colori2",
-                top: "38px",
-                color: "white"
+                class: "elem_tabella_colori"
             }
         }, {
             value: "Silver",
             style: {
-                class: "elem_tabella_colori2",
-                top: "118px"
+                class: "elem_tabella_colori"
+            
             }
         }, {
             value: "Gold",
+            name: "Gold",
             style: {
-                class: "elem_tabella_colori2",
-                top: "198px"
+                class: "elem_tabella_colori"
+              
             }
         }, {
             value: "Aqua",
             style: {
-                class: "elem_tabella_colori2",
-                top: "278px"
+                class: "elem_tabella_colori"
+        
             }
         }, {
             value: "Peru",
             style: {
-                class: "elem_tabella_colori2",
-                top: "358px"
+                class: "elem_tabella_colori"
+                
             }
         }, {
-            value: "White",
+            value: "Black",
             style: {
-                class: "elem_tabella_colori2",
-                top: "438px"
+                class: "elem_tabella_colori"
 
             }
-        },
+        },{
+            value: "Teal",
+            style: {
+                class: "elem_tabella_colori"
+
+            }
+        },{
+            value: "White",
+            style: {
+                class: "elem_tabella_colori"              
+
+            }
+        }
     ];
-
-
 
 
     var persone = [{
@@ -169,7 +163,7 @@ var
         img: "img/ferrante.jpg",
         style: {
 
-            class:"styleNomi",
+            class:"avatar",
             toppp: '100px'
         }
     }, {
@@ -179,7 +173,7 @@ var
         img: "img/cason.png",
 
         style: {
-            class:"styleNomi",
+            class:"avatar",
             toppp: '200px'
         }
     }, {
@@ -189,7 +183,7 @@ var
         img: "img/rossi.jpg",
 
         style: {
-           class:"styleNomi",
+           class:"avatar",
            toppp: "300px"
         }
     }, {
@@ -199,7 +193,51 @@ var
         img: "img/bianchi.jpg",
 
         style: {
-            class: "styleNomi",
+            class: "avatar",
+            toppp: '400px'
+        }
+    },
+    {
+        nome: "Carla",
+        cognome: "Neri",
+        fiscale: "ZBB",
+        img: "img/neri.jpeg",
+
+        style: {
+            class: "avatar",
+            toppp: '400px'
+        }
+    },
+    {
+        nome: "Carla",
+        cognome: "Neri",
+        fiscale: "ZBB",
+        img: "img/neri.jpeg",
+
+        style: {
+            class: "avatar",
+            toppp: '400px'
+        }
+    },
+    {
+        nome: "Carla",
+        cognome: "Neri",
+        fiscale: "ZBB",
+        img: "img/neri.jpeg",
+
+        style: {
+            class: "avatar",
+            toppp: '400px'
+        }
+    },
+    {
+        nome: "Carla",
+        cognome: "Neri",
+        fiscale: "ZBB",
+        img: "img/neri.jpeg",
+
+        style: {
+            class: "avatar",
             toppp: '400px'
         }
     }];
@@ -216,16 +254,18 @@ var
     /******************************* LOGICA CHE DISEGNA *******************************************/
 
     for (var i = 0; i < colors.length; i++) {
-        var div = document.createElement("div");
-        var value = document.createTextNode(colors[i].value);
-        div.appendChild(value);
-        div.style.backgroundColor = colors[i].value;
-        div.style.top = colors[i].style.top;
-        div.style.color = colors[i].style.color;
-        div.classList.add(colors[i].style.class);
+        var divcolor_i = document.createElement("div");
+
+        divcolor_i.setAttribute("value", colors[i].value);
+
+        divcolor_i.style.backgroundColor = colors[i].value;
+        divcolor_i.value = colors[i].value;
+        divcolor_i.style.top = colors[i].style.top;
+        divcolor_i.style.color = colors[i].style.color;
+        divcolor_i.classList.add(colors[i].style.class);
 
         ///////////////////////////////////////////////////////////////////////////////////ascoltatore colore selezionato
-        div.addEventListener('click', (function(value) {
+        divcolor_i.addEventListener('click', (function(value) {
             return function() {
                 SelectColor(value);
 
@@ -233,7 +273,7 @@ var
         })(colors[i].value));
 
 
-        colorsDOM.appendChild(div);
+        colorsDOM.appendChild(divcolor_i);
 
     }
 
@@ -247,7 +287,7 @@ var
 
         var avatar = document.createElement("img");
         avatar.src = persone[i].img;
-        avatar.classList.add("avatar");
+        console.log(divPersona_i);
 
         divPersona_i.appendChild(avatar);
         divPersona_i.appendChild(nome_cognome);
@@ -260,7 +300,7 @@ var
 
         divPersona_i.classList.add(persone[i].style.class);
         divPersona_i.fiscale = persone[i].fiscale;
-        divPersona_i.immagine = persone[i].immagine;
+        
         
 
 
@@ -269,12 +309,17 @@ var
             return function() {
                 SelectPersona(value);
                 if (coloreSelected) {
-                    ChangeColorPersona();
+                    ChangeColorPersona(value);
                 }
             }
         })(persone[i].fiscale));
 
-
+        divPersona_i.addEventListener('mousedown', (function(cognome){
+            return function(){
+                resetBorder(cognome);
+                changeBorder(cognome);
+            }
+        })(persone[i].cognome));
 
 
         personeDOM.appendChild(divPersona_i);
@@ -284,7 +329,7 @@ var
 
 
 
-    /******************************* FUNCTIONS *******************************************/
+    /*********************************************************************** FUNCTIONS ***********************************************************************/
 
 
     var SelectColor = function(value) {
@@ -319,22 +364,18 @@ var
             console.log("Persona: ", fiscaleSelected);
 
             if (fiscaleSelected == personaSelected) {
-                if (coloreSelected == "Navy" || coloreSelected == 'Blue')
+                if (coloreSelected == "Navy" || coloreSelected == 'Blue'|| coloreSelected == "Black")
                     personeDOMChildren[i].style.color = "white";
 
                 else personeDOMChildren[i].style.color = "Black";
 
-
                 colore = coloreSelected;
                 console.log("colore = ", colore);
                 personeDOMChildren[i].style.backgroundColor = colore;
-
             }
         }
 
-
-
-
+    /*********************************************************************** Funzione CAMBIA IL BORDO ***********************************************************************/
     }
 
     var changeBorder = function(cognome) {
@@ -358,6 +399,7 @@ var
 
         }
     }
+    /*********************************************************************** Funzione RESETTA IL BORDO ***********************************************************************/
     var resetBorder = function(cognome) {
 
         var cognome2 = cognome;
@@ -367,14 +409,62 @@ var
 
             for (i = 0; i < persone.length; i++) {
                 
-                    console.log("funziona", cognome2);
+                console.log("funziona", cognome2);
 
-                    personeDOMChildren[i].style.border = '1px solid black';
-                    
-                
+                personeDOMChildren[i].style.border = '1px solid black'; 
             }
         }
     }
+
+
+    /*********************************************************************** array immagini ***********************************************************************/
+
+    var arrayOfImage = [{
+        
+        img : 'img/ferrante.jpg',
+        value :'ferrante'
+        },
+        {
+            img:'img/rossi.jpg',
+          value: 'rossi'
+        },
+        {
+           img:'img/bianchi.jpg',
+            value:'bianchi'
+        },
+        {
+            img:'img/cason.png',
+           value:'cason'
+        }];
+
+
+    /*********************************************************************** parte logica arrayOfImage ***********************************************************************/
+
+
+        for (var i = 0; i < arrayOfImage.length; i++) {
+           
+            var divimage_i = document.createElement("div");
+
+            var style_image = document.createElement("img");
+
+            /*style_image.appendChild(style_image);
+            
+            style_image.src = arrayOfImage[i].img;
+
+             style_image.classList.add("style_image");
+           
+            //console.log(divimage_i);
+            style_image.setAttribute("value", arrayOfImage[i].value);
+        
+
+                
+            
+            divimage_i.img = arrayOfImage[i].img;
+            divimage_i.value = arrayOfImage[i].value;*/
+            
+        
+//------------------------------>controllare perchè non si vede l'immagine nonostante ci sia il percorso <-----------------------------------------------------
+        }
 
 
 </script>

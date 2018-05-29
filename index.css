@@ -4,98 +4,57 @@
     padding: 0px;
 }
 
-.vettore_persone{
-
-    position: absolute;
-    width: 500px;
-    left: 70%;
-    top: 100px;
-
+.flex_container {
+    display: flex;
 }
 
-
-
-.fintobottone {
-    width: 20em;
-    padding: .10em;
-    color: #ffffff;
-    text-shadow: 1px 1px 1px #000;
-    border: solid thin #882d13;
-    -webkit-border-radius: .7em;
-    -moz-border-radius: .7em;
-    border-radius: .7em;
-    -webkit-box-shadow: 2px 2px 3px #999;
-    box-shadow: 2px 2px 2px #bbb;
-    background-color: #ce401c;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#e9ede8), to(#ce401c), color-stop(0.4, #8c1b0b));
+.persone  {
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
 }
+
+.colori {
+    border: 1px solid rgb(184, 182, 182);
+    display: flex;
+    height: 100%;
+    width: 400px;
+    flex-wrap: wrap;
+}
+
 
 .prova {
     background-color: pink;
     text-align: center;
 }
 
-.tabella_colori {
-    width: 300px;
-    height: 100%;
-    border: 1px solid rgb(184, 182, 182);
-}
 
 .elem_tabella_colori {
     width: 60px;
     height: 60px;
-    border: 10px solid white;
+    border: 1px solid black;
+    margin: 0.75rem;
     text-align: center;
     line-height: 60px;
+    color: black;
 }
 
-.ciao {
-    border: 1px solid #E8E8E8;
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    position: absolute;
-    left: 8%;
-    line-height: 60px;
-}
-
-.elem_tabella_colori2 {
-    width: 60px;
-    height: 60px;
-    border: 10px solid white;
-    text-align: center;
-    position: absolute;
-    left: 15%;
-    line-height: 60px;
-}
-
-.tabella div {
-    width: 5px;
-}
-
-.formattazione {
-    position: absolute;
-    left: 41%;
-}
-
-.change {
-    top: 300px;
-    position: absolute;
-    left: 40%;
-    height: 80px;
-    width: 80px;
-    background-color: yellow;
-}
 
 .avatar {
+    padding: 3px;
     text-align: center;
-    right: 100%;
-    width: 150px;
-    height: 100px;
+    margin: 0.5rem;
+    width: 170px;
+    height: 250px;
     border: 1px solid black;
     color: black;
     background-color: white;
     
+}
+
+.avatar img {
+    width: 150px;
+    height: 150px;
 }
 
 
