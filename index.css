@@ -14,7 +14,7 @@
     flex-wrap: wrap;
 }
 
-.colori {
+.azioni {
     border: 1px solid rgb(184, 182, 182);
     display: flex;
     height: 100%;
@@ -23,17 +23,43 @@
 }
 
 
-.prova {
-    background-color: pink;
-    text-align: center;
+.colori {
+    border: 1px solid rgb(184, 182, 182);
+    display: flex;
+    height: 100%;
+    width: 400px;
+    flex-wrap: wrap;
+}
+
+.colori h1 {
+    font-size: 15px;
+    width: 100%;
+    text-align: center
 }
 
 
+.header {
+    background-color: #E8E8E8;
+    font-size: 15px;
+    height: 50px;
+    border-bottom: 1px solid grey;
+    vertical-align: middle;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.header h1 {
+    background-color: unset;
+    height: 100%;
+}
+
+
+
 .elem_tabella_colori {
-    width: 60px;
-    height: 60px;
+    width: 20px;
+    height: 20px;
     border: 1px solid black;
-    margin: 0.75rem;
+    margin: 0.15rem;
     text-align: center;
     line-height: 60px;
     color: black;
@@ -45,7 +71,7 @@
     text-align: center;
     margin: 0.5rem;
     width: 170px;
-    height: 250px;
+    height: 200px;
     border: 1px solid black;
     color: black;
     background-color: white;
