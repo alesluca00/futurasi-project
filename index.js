@@ -200,7 +200,7 @@ var persone = [{
     nome: "Sara",
     cognome: "Marroni",
     fiscale: "MBB",
-    img: "img/neri.jpg",
+    img: "img/marroni.jpg",
 
     style: {
         class: "avatar",
@@ -208,26 +208,75 @@ var persone = [{
     }
     },
     {
-    nome: "Carla",
-    cognome: "Neri",
-    fiscale: "ZBB",
-    img: "img/neri.jpeg",
+    nome: "Guido",
+    cognome: "Piano",
+    fiscale: "PBB",
+    img: "img/piano.jpg",
     style: {
         class: "avatar",
         toppp: '400px'
     }
     }];
 
+    var theme = [{
+       nome: 'Default',
+       style: {
+
+                class: 'defaultIcon'
+
+              }
+    },{
+        nome: 'firstTheme',
+        style: {
+ 
+                 class: 'firstThemeIcon'
+ 
+               }
+     },{
+        nome: 'secondTheme',
+        style: {
+ 
+                 class: 'secondThemeIcon'
+ 
+               }
+     }];
+
 
 var personaSelected = null;
 var coloreSelected = null;
-var reset=false;
+var themeSelected = null;
 
 var colorsDOM = document.getElementById('colors');
 var personeDOM = document.getElementById('persone');
+var themeDOM = document.getElementById('temi');
+
 
 
 /******************************* LOGICA CHE DISEGNA *******************************************/
+var themeDOMChildren = themeDOM.children;
+for(var i=0; i < theme.length; i++)
+{
+
+    var divtheme_i = document.createElement("div");
+    divtheme_i.setAttribute("value", theme[i].nome)
+    divtheme_i.classList.add(theme[i].style.class);
+    divtheme_i.value = theme[i].nome;
+
+    var tema_scelto = document.createTextNode(theme[i].nome);
+    divtheme_i.appendChild(tema_scelto);
+    themeDOM.appendChild(divtheme_i);
+
+    /*--------------------------------------------------Temi Logica----------------------------------------*/
+    
+    divtheme_i.addEventListener('click', (function(value) {
+        return function() {
+            ChangeTheme(value);
+
+        }
+    })(theme[i].nome));
+
+
+}
 
 for (var i = 0; i < colors.length; i++) {
     var divcolor_i = document.createElement("div");
@@ -282,9 +331,13 @@ for (var i = 0; i < colors.length; i++) {
     ///////////////////////////////////////////////////////////////////////////////////ascoltatore persona selezionata
     divPersona_i.addEventListener('click', (function(value) {
         return function() {
-            SelectPersona(value);
+           
             if (coloreSelected) {
+                 SelectPersona(value);
                 ChangeColorPersona(value);
+            }
+            if(themeSelected){
+                ChangeTheme(value)
             }
         }
     })(persone[i].fiscale));
@@ -312,6 +365,11 @@ coloreSelected = value;
 console.log("coloreSelected = ", coloreSelected);
 }
 
+var SelectTheme =function(value){
+themeSelected = value;
+console.log("tema selezionato = ", themeSelected);
+}
+
 var SelectPersona = function(id) {
 personaSelected = id;
 console.log("personaSelected = ", personaSelected);
@@ -326,7 +384,7 @@ console.log("personeDOM = ", personeDOM.children);
 var fiscaleSelected;
 var colore;
 var nuovoColore;
-
+console.log("colore", colore);
 var personeDOMChildren = personeDOM.children;
 for (var i = 0; i < personeDOMChildren.length; i++) {
     console.log("personeDOM[" + i + "] = ", personeDOMChildren[i]);
@@ -363,7 +421,7 @@ for (var i = 0; i < personeDOMChildren.length; i++) {
     for (i = 0; i < persone.length; i++) {
         if (persone[i].cognome == cognome2) {
 
-            console.log("reset", reset);
+           // console.log("reset", reset);
             console.log("funziona", cognome2);
 
             personeDOMChildren[i].style.border = '3px solid blue';
@@ -389,6 +447,44 @@ for (var i = 0; i < personeDOMChildren.length; i++) {
         personeDOMChildren[i].style.border = '1px solid black'; 
     }
 }
+}
+
+/*********************************************************************** Funzione CAMBIA TEMA ***********************************************************************/
+
+var ChangeTheme = function(){
+
+        console.log("Change Theme");
+    console.log("Theme selected = ", themeSelected);
+    console.log("personaSelected = ", personaSelected);
+    //console.log("personeDOM = ", personeDOM.children);
+
+    //var personeDOMChildren = personeDOM.children;
+    var fiscaleSelected;
+    var tema;
+    tema = themeSelected;
+    console.log("tema selezionato", tema);
+    //var nuovoColore;
+
+    var personeDOMChildren = personeDOM.children;
+    for (var i = 0; i < personeDOMChildren.length; i++) {
+        console.log("personeDOM[" + i + "] = ", personeDOMChildren[i]);
+
+        //capire l'elemento con fiscale giusto 
+        //cambiare colore
+
+        fiscaleSelected = personeDOMChildren[i].fiscale;
+        console.log("persona preselezionata: ", personaSelected);
+        console.log("Persona: ", fiscaleSelected);
+
+        if (fiscaleSelected == personaSelected) {
+            
+
+            tema = themeSelected;
+            console.log("colore = ", colore);
+            personeDOMChildren[i].style = colore;
+        }
+    }
+
 }
 
 
@@ -440,5 +536,8 @@ for (var i = 0; i < arrayOfImage.length; i++) {
 
 //------------------------------>controllare perchè non si vede l'immagine nonostante ci sia il percorso <-----------------------------------------------------
 }
+
+
+
 
 
