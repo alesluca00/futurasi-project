@@ -36,11 +36,14 @@ class Temi{
   }
 
   toView(){
+      
     for(var i=0; i < this.temi.length; i++)
     {
     
         var divtheme_i = document.createElement("div");
+
         divtheme_i.setAttribute("value", this.temi[i].nome)
+
         divtheme_i.classList.add(this.temi[i].style.class);
         divtheme_i.value = this.temi[i].nome;
     
