@@ -227,7 +227,7 @@ var persone = [{
         } 
     }];
     var theme = [{
-       nome: 'Default',
+       nome: 'default',
        style: {
 
                 class: 'defaultIcon'
@@ -278,8 +278,8 @@ for(var i=0; i < theme.length; i++)
     
     divtheme_i.addEventListener('click', (function(value) {
         return function() {
-            ChangeTheme(value);
-
+            
+            SelectTheme(value);
         }
     })(theme[i].nome));
 
@@ -337,18 +337,23 @@ for (var i = 0; i < colors.length; i++) {
 
 
     ///////////////////////////////////////////////////////////////////////////////////ascoltatore persona selezionata
-    divPersona_i.addEventListener('click', (function(value) {
-        return function() {
-           
-            if (coloreSelected) {
-                 SelectPersona(value);
+    divPersona_i.addEventListener('click', (function( value) {
+        return function() { 
+ 
+             SelectPersona(value); 
+            
+            if (coloreSelected) { 
+                 
                 ChangeColorPersona(value);
             }
-            if(themeSelected){
-                ChangeTheme(value)
+
+            if(themeSelected) {
+                ChangeTheme()
             }
         }
     })(persone[i].fiscale));
+
+    
 
     divPersona_i.addEventListener('mousedown', (function(cognome){
         return function(){
@@ -382,6 +387,7 @@ var SelectPersona = function(id) {
 personaSelected = id;
 console.log("personaSelected = ", personaSelected);
 }
+
 var ChangeColorPersona = function() {
 console.log("changeColorPersona");
 console.log("coloreSelected = ", coloreSelected);
@@ -452,7 +458,7 @@ for (var i = 0; i < personeDOMChildren.length; i++) {
         
         console.log("funziona", cognome2);
 
-        personeDOMChildren[i].style.border = '1px solid black'; 
+        personeDOM.children[i].style.border = '1px solid black'; 
     }
 }
 }
@@ -462,36 +468,38 @@ for (var i = 0; i < personeDOMChildren.length; i++) {
 var ChangeTheme = function(){
 
         console.log("Change Theme");
-    console.log("Theme selected = ", themeSelected);
-    console.log("personaSelected = ", personaSelected);
-    //console.log("personeDOM = ", personeDOM.children);
+   
 
-    //var personeDOMChildren = personeDOM.children;
-    var fiscaleSelected;
-    var tema;
+        console.log("personeDOM = ", personeDOM.children, themeSelected);
+
+    var fiscaleSelected = null;
+    var tema = null;
     tema = themeSelected;
+    fiscaleSelected = personeDOM.children[0].fiscale;
+
     console.log("tema selezionato", tema);
-    //var nuovoColore;
+    console.log("Persona selezionata: ", personaSelected);
+
+    
 
     var personeDOMChildren = personeDOM.children;
     for (var i = 0; i < personeDOMChildren.length; i++) {
         console.log("personeDOM[" + i + "] = ", personeDOMChildren[i]);
 
-        //capire l'elemento con fiscale giusto 
-        //cambiare colore
-
         fiscaleSelected = personeDOMChildren[i].fiscale;
-        console.log("persona preselezionata: ", personaSelected);
-        console.log("Persona: ", fiscaleSelected);
+        
 
         if (fiscaleSelected == personaSelected) {
-            
-
+             
             tema = themeSelected;
-            //console.log("colore = ", colore);
-            personeDOMChildren[i].style = colore;
+
+            //ciclo per rimuovere quelle gia' messe 
+            personeDOM.children[i].classList.add(tema);
         }
     }
+
+    console.log("personeDOM = ", personeDOM.children, themeSelected);
+
 
 }
 
