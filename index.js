@@ -13,59 +13,55 @@ temi.toView();
 
 var azioni = new Azioni(persone, colori, temi);
 
+var textBox = document.getElementById('textBox');
+
 /*******************************************EventListener PERSONA***************************************** */
 
 for(var i=0; i < persone.persone.length; i++) {
 
-    persone.personeDOM.children[i].addEventListener('click', (function( value) {
+    persone.personeDOM.children[i].addEventListener('click', ((persona) => {
 
         return function() { 
-    
-                azioni.SelectPersona(value);
+            azioni.resetBorder(persona.cognome);
+            azioni.changeBorder(persona.cognome);
+            azioni.SelectPersona(persona.fiscale);
             
             if (colori.coloreSelected) { 
                     
-                azioni.ChangeColorPersona(value);
+                azioni.ChangeColorPersona(persona.fiscale);
             }
     
             if(temi.themeSelected) {
                azioni.ChangeTheme();
             }
         }
-    })(persone.persone[i].fiscale));
+    })(persone.persone[i]));
 }
 
+var parola_completa = "";
 
 
-for(var i = 0; i < persone.persone.length; i++) {
+textBox.addEventListener('keyup', (function(event){
+    
+        if(event.key == 'Enter') {
+            console.log("buongiorno", parola_completa); 
+            console.log("ciao", event.key);
+               
+            azioni.ChangeNamePersona(parola_completa);
+            parola_completa = '';
 
-    persone.personeDOM.children[i].addEventListener('mousedown', (function(cognome){
-
-        return function(){
-            console.log("cognomeeee", cognome);
-            azioni.resetBorder(cognome);
-            azioni.changeBorder(cognome);
+           
+            }
+        else {
+            
+            parola_completa = parola_completa + event.key;
         }
-    })(persone.persone[i].cognome));
-}
-
-
-var prova = null;
-
-var Guernelli = document.getElementById('textBox.casellaTesto');
-console.log("testo nella casella: ", Guernelli);
-
-prova.addEventListener('keyup', (function(Guernelli){
-    return function(){
-
-        if(casellaTesto.which === 13){
-            console.log("testo dentro la casella: ", Guernelli);
-        }
-    }      
-})(Guernelli));
-
-
-
+    }
+));
+    
+    
+            
+        
 
 
 /*******************************************EventListener COLORI***************************************** */
@@ -99,8 +95,10 @@ for(var i=0; i < temi.temi.length; i++){
 
         return function() { 
 
+            
             azioni.SelectTheme(value);
-            console.log("TEMA SEL: ", value);
+console.log("TEMA SEL: ", value);
+            
 
         }
 
@@ -108,8 +106,3 @@ for(var i=0; i < temi.temi.length; i++){
 
 
 }
-
-
-
-
-

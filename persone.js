@@ -27,6 +27,8 @@ class Persone {
             divPersona_i.appendChild(avatar);
             divPersona_i.appendChild(nome_cognome);
             divPersona_i.setAttribute("fiscale", this.persone[i].fiscale);
+            divPersona_i.setAttribute("nome", this.persone[i].nome);
+
             divPersona_i.classList.add(this.persone[i].style.class);
             divPersona_i.fiscale = this.persone[i].fiscale;
             this.personeDOM.appendChild(divPersona_i);
