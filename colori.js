@@ -20,6 +20,7 @@ class Colori {
         
             divcolor_i.style.backgroundColor = this.colori[i].value;
             divcolor_i.value = this.colori[i].value;
+
             divcolor_i.style.color = this.colori[i].style.color;
             divcolor_i.classList.add(this.colori[i].style.class);
             this.colorsDOM.appendChild(divcolor_i);
@@ -30,9 +31,13 @@ class Colori {
     getDomColorById(id) {
         var trovato = false;
         var domColor = null;
-        for (var i = 0; i < this.colorsDOM.children.length; i++) {
+        for (var i = 0; i < this.colorsDOM.children.length && !trovato; i++) {
             if (id == this.colorsDOM.children[i].getAttribute("value")) {
                 domColor = this.colorsDOM.children[i];
+                trovato = true;
+                
+
+
             }
         }
         return domColor;

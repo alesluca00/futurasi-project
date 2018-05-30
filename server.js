@@ -199,5 +199,32 @@ class Server {
                 }
             }
         ];
+
+    }
+    getTemi(){
+        return [
+            {
+                nome: 'default',
+                style: {
+        
+                    class: 'defaultIcon'
+        
+                }
+            },
+            {
+                nome: 'firstTheme',
+                style: {
+        
+                    class: 'firstThemeIcon'
+                }
+            },
+            {
+                nome: 'secondTheme',
+                style: {
+        
+                    class: 'secondThemeIcon'
+                }
+            }
+        ];
     }
 }

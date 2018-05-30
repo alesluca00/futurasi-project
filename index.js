@@ -8,7 +8,7 @@ persone.toView();
 var colori = new Colori(server.getColori());
 colori.toView();
 
-var temi = new Temi();
+var temi = new Temi(server.getTemi());
 temi.toView();
 
 var azioni = new Azioni(persone, colori, temi);
@@ -75,11 +75,18 @@ for(var i=0; i < colori.colori.length ; i++) {
 
 for(var i=0; i < temi.temi.length; i++){
 
-    temi.themeDOM.children[i].addEventListener('click', (function(value) {
+    
+    var domTemi = temi.getDomTemaById(temi.temi[i].nome);
+    console.log("www", domTemi);
+
+
+    domTemi.addEventListener('click', (function(value) {
 
         return function() { 
 
             azioni.SelectTheme(value);
+            console.log("TEMA SEL: ", value);
+
         }
 
     })(temi.temi[i].nome));
