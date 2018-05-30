@@ -13,7 +13,7 @@ temi.toView();
 
 var azioni = new Azioni(persone, colori, temi);
 
-
+/*******************************************EventListener PERSONA***************************************** */
 
 for(var i=0; i < persone.persone.length; i++) {
 
@@ -21,7 +21,7 @@ for(var i=0; i < persone.persone.length; i++) {
 
         return function() { 
     
-                azioni.SelectPersona(value); 
+                azioni.SelectPersona(value);
             
             if (colori.coloreSelected) { 
                     
@@ -34,6 +34,8 @@ for(var i=0; i < persone.persone.length; i++) {
         }
     })(persone.persone[i].fiscale));
 }
+
+
 
 for(var i = 0; i < persone.persone.length; i++) {
 
@@ -48,11 +50,28 @@ for(var i = 0; i < persone.persone.length; i++) {
 }
 
 
+var prova = null;
 
-/******************************* COLORI *************************************/
+var Guernelli = document.getElementById('textBox.casellaTesto');
+console.log("testo nella casella: ", Guernelli);
+
+prova.addEventListener('keyup', (function(Guernelli){
+    return function(){
+
+        if(casellaTesto.which === 13){
+            console.log("testo dentro la casella: ", Guernelli);
+        }
+    }      
+})(Guernelli));
 
 
-for(var i=0; i < colori.colori.length ; i++) {
+
+
+
+/*******************************************EventListener COLORI***************************************** */
+
+
+ for (var i=0; i < colori.colori.length ; i++) {
 
     var domColor = colori.getDomColorById(colori.colori[i].value);
 
@@ -65,12 +84,8 @@ for(var i=0; i < colori.colori.length ; i++) {
     })(colori.colori[i].value));
 }
 
-    /////////////////////////////SELEZIONA COLORE
 
-
-
-
-/******************************* TEMI *******************************************/
+/*******************************************EventListener TEMI***************************************** */
 
 
 for(var i=0; i < temi.temi.length; i++){
@@ -91,7 +106,9 @@ for(var i=0; i < temi.temi.length; i++){
 
     })(temi.temi[i].nome));
 
+
 }
+
 
 
 

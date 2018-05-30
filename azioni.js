@@ -21,6 +21,24 @@ class Azioni {
         this.temi.themeSelected = value;
         console.log("temaSelected = ",this.temi.themeSelected);
     }
+    ChangeNamePersona() {
+
+        this.personeDOMChildren = this.persone.personeDOM.children;
+        
+        for (var i = 0; i < this.personeDOMChildren.length; i++) {
+        
+        
+            if (this.personeDOMChildren[i].fiscale == this.persone.personaSelected) {
+
+                if (this.colori.coloreSelected == "Navy" || this.colori.coloreSelected == 'Blue'|| this.colori.coloreSelected == "Black")
+                    this.personeDOMChildren[i].style.color = "white";
+        
+                else this.personeDOMChildren[i].style.color = "Black";
+            
+                this.personeDOMChildren[i].nome = null; //nome dentro la casella di testo;
+            }
+        }
+    }
 
 
     ChangeColorPersona() {

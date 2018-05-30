@@ -33,6 +33,18 @@
     width: 400px;
     flex-wrap: wrap;
 }
+.textBox {
+    border: 1px solid rgb(184, 182, 182);
+    display: flex;
+    height: 100%;
+    width: 400px;
+    flex-wrap: wrap;
+}
+.textBox h1 {
+    font-size: 15px;
+    width: 100%;
+    text-align: center
+}
 
 .colori h1 {
     font-size: 15px;
@@ -131,6 +143,18 @@
     vertical-align: middle;
 
 }
+
+.casellaTesto{
+
+    border: 1px solid black;
+    margin: 0.75rem;
+    position: relative;
+    left:100px;
+    text-align: left; /* orizzontale */
+    line-height: 25px; /* verticale */
+
+}
+
 
 
 /*-----------------------------------------TEMI-----------------------------------------*/

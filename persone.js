@@ -34,19 +34,5 @@ class Persone {
         }
 
     }
-
-    getDomColorById(id) {
-        var trovato = false;
-        var Persone = null;
-        for (var i = 0; i < this.personeDOM.children.length && !trovato; i++) {
-            if (id == this.personeDOM.children[i].getAttribute("value")) {
-                domPersone = this.personeDOM.children[i];
-                trovato = true;
-            }
-        }
-        return domPersone;
-    }
-    
-
        
 }
