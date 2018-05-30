@@ -33,14 +33,21 @@ class Azioni {
                 if (this.personeDOMChildren[i].fiscale == this.persone.personaSelected) {
 
                     console.log("copate", lettera);
-
-                    this.personeDOMChildren[i].nome = lettera;
-                    console.log("stapa",  this.personeDOMChildren[i].nome );
                     
+
+                    this.personeDOMChildren[i].setAttribute("nome", lettera);
+                   // this.personeDOMChildren[i].nome_cognome.nodeValue=(this.persone.persone[i].nome + ' ' + this.persone.persone[i].nome);
+
+                    
+
+                    //this.personeDOMChildren[i].createTextNode(this.persone.persone[i].nome + ' ' + this.persone.persone[i].cognome);
+                    
+                    
+                    console.log("stampa1", persone.personaSelected);
+                    console.log("stampa",this.personeDOMChildren[i]);
                 }
             }
-        }
-                   
+        }                
     }
 
     ChangeColorPersona() {
