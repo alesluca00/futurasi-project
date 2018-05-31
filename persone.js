@@ -19,9 +19,7 @@ class Persone {
         for (var i = 0; i < this.persone.length; i++) {
 
             var divPersona_i = document.createElement("div");
-
             var nome_cognome = document.createTextNode(this.persone[i].nome + ' ' + this.persone[i].cognome);
-
             var avatar = document.createElement("img");
 
             avatar.src = this.persone[i].img;

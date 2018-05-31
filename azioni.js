@@ -26,26 +26,25 @@ class Azioni {
     ChangeNamePersona(lettera) {
 
         this.personeDOMChildren = this.persone.personeDOM.children;
-
         
         for (var i = 0; i < this.personeDOMChildren.length; i++) {
-            
             if(this.persone.personaSelected){
                 
                 if (this.personeDOMChildren[i].fiscale == this.persone.personaSelected) {
 
-                    for(var i = 0; i<this.persone.length;i++){
-
                     console.log("copate", lettera);
                     
-                    nome_co
+
+                    this.personeDOMChildren[i].setAttribute("nome", lettera);
+                   // this.personeDOMChildren[i].nome_cognome.nodeValue=(this.persone.persone[i].nome + ' ' + this.persone.persone[i].nome);
+
                     
 
-                   // this.personeDOMChildren[i].nome_cognome.nodeValue=(this.persone.persone[i].nome + ' ' + this.persone.persone[i].nome);
                     //this.personeDOMChildren[i].createTextNode(this.persone.persone[i].nome + ' ' + this.persone.persone[i].cognome);
+                    
+                    
                     console.log("stampa1", persone.personaSelected);
                     console.log("stampa",this.personeDOMChildren[i]);
-                     }
                 }
             }
         }                
@@ -82,9 +81,9 @@ class Azioni {
             console.log("changetheme", i, this.persone.personaSelected, this.persone.persone[i].fiscale);
             if (this.persone.personaSelected == this.persone.persone[i].fiscale) {
             
-                this.persone.personeDOM.children[i].classList.add(temi.themeSelected);
-                trovato = true;
-            }
+            this.persone.personeDOM.children[i].classList.add(temi.themeSelected);
+            trovato = true;
+        }
         }
     }
 
