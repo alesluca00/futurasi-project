@@ -26,7 +26,7 @@ class Azioni {
     ChangeNamePersona(lettera) {
 
         this.personeDOMChildren = this.persone.personeDOM.children;
-        
+        //
         for (var i = 0; i < this.personeDOMChildren.length; i++) {
             if(this.persone.personaSelected){
                 
