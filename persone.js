@@ -36,16 +36,5 @@ class Persone {
         }
 
     }
-    getDomPersonaById(id) {
-
-        var domPeople = null;
-        for (var i = 0; i < this.personeDOM.children.length; i++) {
-            if (id == this.personeDOM.children[i].getAttribute("nome")) {
-                domPeople = this.personeDOM.children[i];
-                console.log("PERSONA: ", domPeople);
-            }
-        }
-        return domPeople;
-    }
        
 }

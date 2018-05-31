@@ -41,10 +41,7 @@ for(var i=0; i < persone.persone.length; i++) {
 var parola_completa = "";
 
 
-{
-    
-
-    textBox.addEventListener('keyup', (function(event){
+textBox.addEventListener('keyup', (function(event){
     
         if(event.key == 'Enter') {
             console.log("buongiorno", parola_completa); 
@@ -55,12 +52,13 @@ var parola_completa = "";
 
            
             }
-            else {
-                parola_completa = parola_completa + event.key;
-            }
+        else {
+            
+            parola_completa = parola_completa + event.key;
         }
-    ));
-}
+    }
+));
+    
     
             
         
