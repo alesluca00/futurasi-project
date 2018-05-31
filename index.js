@@ -38,40 +38,33 @@ for(var i=0; i < persone.persone.length; i++) {
     })(persone.persone[i]));
 }
 
-var parola_completa = "";
 
 
-{
-    
-
+    var parola_completa = "";
     textBox.addEventListener('keyup', (function(event){
-    
+
+         
         if(event.key == 'Enter') {
             console.log("buongiorno", parola_completa); 
             console.log("ciao", event.key);
-               
-            azioni.ChangeNamePersona(parola_completa);
+            console.log("nome e cognomeeeeee2: ", nome_cognome);
+
             parola_completa = '';
 
-           
-            }
-            else {
-                parola_completa = parola_completa + event.key;
-            }
+    
         }
-    ));
-}
+        else {
+            parola_completa = parola_completa + event.key;
+        }
+    }));
     
             
-        
-
-
 /*******************************************EventListener COLORI***************************************** */
 
 
  for (var i=0; i < colori.colori.length ; i++) {
 
-    var domColor = colori.getDomColorById(colori.colori[i].value);
+    var domColor = colori.getDomColorById(colori.colori[i].nome);
 
     domColor.addEventListener('click', (function(value) {
 
