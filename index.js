@@ -60,7 +60,7 @@ for(var i=0; i < persone.persone.length; i++) {
         }   
     }));
     
-   persone.toView();        
+
         
 
 
@@ -104,5 +104,21 @@ console.log("TEMA SEL: ", value);
 
     })(temi.temi[i].nome));
 
+
+}
+/*******************************************EventListener TITOLI******************************************/
+console.log("prova", document.getElementsByTagName('h1'));
+var domTagName = null;
+var arrayTitolo = document.getElementsByTagName('h1');
+for( var i = 0; i < arrayTitolo.length; i++){
+    
+    domTagName = arrayTitolo[i];
+    console.log("titoli", domTagName);
+    domTagName.addEventListener('mouseover', (function(domTagName){
+        return function(){
+            azioni.conversioneStringArray(domTagName);
+          
+        }
+    })(arrayTitolo[i].innerText));
 
 }
