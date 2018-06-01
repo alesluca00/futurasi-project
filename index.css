@@ -46,6 +46,14 @@
     text-align: center
 }
 
+#titolo {
+    height: 3em;
+    color: black;
+    background-color: unset;
+}
+
+
+
 .colori h1 {
     font-size: 15px;
     width: 100%;

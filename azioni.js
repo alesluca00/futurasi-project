@@ -98,20 +98,13 @@ class Azioni {
         }
     }
     conversioneStringArray(parolaSel) {
-        var vettoreLettere = parolaSel.split("");
-        console.log("title:", vettoreLettere);
-          console.log("lunghezza parola: ", vettoreLettere.length);
-        for( var i = 0; i < vettoreLettere.length; i++)
-            {   
-                var letteraSel =  vettoreLettere[i]
-                letteraSel.addEventListener('mouseover', (function(){
-                //vettoreLettere[i].colore = 'red';
-                console.log("entraaaaaaaaaa", letteraSel);
-            })(vettoreLettere));
-    
-    }
-
-    
-}       
+        //var vettoreLettere = parolaSel.split("");
+        //for( var i = 0; i<vettoreLettere.length; i++){
         
+            vettoreLettere = document.createElement('span');
+            vettoreLettere.setAttribute('pos', i);
+        //}
+        //console.log("title:", vettoreLettere);
+        //console.log("lunghezza parola: ", vettoreLettere.length);        
+    }      
 }

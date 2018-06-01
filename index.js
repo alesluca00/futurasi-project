@@ -8,6 +8,10 @@ persone.toView();
 var colori = new Colori(server.getColori());
 colori.toView();
 
+var titolo = new Titolo();
+titolo.toView();
+console.log("index:titolo", titolo.titoloDOM);
+
 var temi = new Temi(server.getTemi());
 temi.toView();
 
@@ -110,15 +114,24 @@ console.log("TEMA SEL: ", value);
 console.log("prova", document.getElementsByTagName('h1'));
 var domTagName = null;
 var arrayTitolo = document.getElementsByTagName('h1');
-for( var i = 0; i < arrayTitolo.length; i++){
+//for( var i = 0; i < arrayTitolo.length; i++){
     
-    domTagName = arrayTitolo[i];
+   // domTagName = arrayTitolo[i];
     console.log("titoli", domTagName);
-    domTagName.addEventListener('mouseover', (function(domTagName){
+    arrayTitolo.addEventListener('mouseover', (function(arrayTitolo){
         return function(){
-            azioni.conversioneStringArray(domTagName);
+           arrayTitolo = document.createElement('div');
+            arrayTitolo.setAttribute('pos', i);
+            console.log("vettore ora", arrayTitolo);
+            //azioni.conversioneStringArray(domTagName);
+            /*for( var i = 0; i < vettoreLettere.length; i++){
+                console.log("vettore: ", vettoreLettere[i]);
+                if(vettoreLettere[i]==domTagName){
+                    vettoreLettere[i].style.color="red";
+                }*/
+            
           
-        }
-    })(arrayTitolo[i].innerText));
-
-}
+       // }
+    //})(arrayTitolo[i].innerHTML));
+            }
+}));
