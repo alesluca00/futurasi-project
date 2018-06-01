@@ -24,23 +24,16 @@ class Azioni {
 
 
     ChangeNamePersona(lettera) {
-
-        this.personeDOMChildren = this.persone.personeDOM.children;
-        //
-        for (var i = 0; i < this.personeDOMChildren.length; i++) {
-            if(this.persone.personaSelected){
-                
-                if (this.personeDOMChildren[i].fiscale == this.persone.personaSelected) {
-
-                    console.log("copate", lettera);
-
-                    this.personeDOMChildren[i].nome = lettera;
-                    console.log("stapa",  this.personeDOMChildren[i].nome );
-                    
-                }
+    
+        var personeDOMChildren = this.persone.personeDOM.children;
+           
+        for (var i = 0; i < personeDOMChildren.length; i++) {
+            if (this.persone.personaSelected && personeDOMChildren[i].fiscale == this.persone.personaSelected){
+                     
+                var textDiv = personeDOMChildren[i].getElementsByClassName("nome_cognome")[0];
+                textDiv.innerHTML = lettera;     
             }
-        }
-                   
+        }                  
     }
 
     ChangeColorPersona() {

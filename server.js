@@ -79,10 +79,36 @@ class Server {
                 img: "img/severo.jpg",
                 style: {
                     class: "avatar",
-                    toppp: '400px'
                 } 
-        }];
-    }
+            },{
+                nome: "Guido",
+                cognome: "Collauto",
+                fiscale: "SBC",
+                img: "img/collauto.jpg",
+                style: {
+                    class: "avatar",
+                } 
+            },{
+                nome: "Carla",
+                cognome: "Rizzoli",
+                fiscale: "SBT",
+                img: "img/rizzoli.jpg",
+                style: {
+                    class: "avatar",
+                }
+            },{
+
+                nome: "Daniel",
+                cognome: "Barazza",
+                fiscale: "SBP",
+                img: "img/barazza.jpg",
+                style: {
+                    class: "avatar",
+
+            }
+            
+}];
+}
 
     getColori() {
         return [{
