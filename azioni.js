@@ -31,8 +31,8 @@ class Azioni {
             if (this.persone.personaSelected && personeDOMChildren[i].fiscale == this.persone.personaSelected){
                      
                 var textDiv = personeDOMChildren[i].getElementsByClassName("nome_cognome")[0];
-                textDiv.innerHTML = lettera;     
-            }
+                textDiv.innerHTML = lettera;
+                console.log("controllo", this.colori.colori[i]);            }
         }                  
     }
 
@@ -40,6 +40,7 @@ class Azioni {
 
         
         this.personeDOMChildren = this.persone.personeDOM.children;
+   
         
         for (var i = 0; i < this.personeDOMChildren.length; i++) {
         
@@ -52,6 +53,9 @@ class Azioni {
                 else this.personeDOMChildren[i].style.color = "Black";
             
                 this.personeDOMChildren[i].style.backgroundColor = this.colori.coloreSelected;
+                console.log('personeDomchildren::', this.persone.personeDOM.getElementsByClassName('nome_cognome')[i].style.backgroundColor);
+                this.persone.personeDOM.getElementsByClassName('nome_cognome')[i].style.backgroundColor = this.colori.coloreSelected
+                
             }
         }
     
@@ -97,14 +101,25 @@ class Azioni {
 
         }
     }
-    conversioneStringArray(parolaSel) {
-        //var vettoreLettere = parolaSel.split("");
-        //for( var i = 0; i<vettoreLettere.length; i++){
+    
+    changeLetter(lettere){
         
-            vettoreLettere = document.createElement('span');
-            vettoreLettere.setAttribute('pos', i);
-        //}
-        //console.log("title:", vettoreLettere);
-        //console.log("lunghezza parola: ", vettoreLettere.length);        
-    }      
-}
+       
+        if(this.colori.coloreSelected && lettere.style.color != this.colori.coloreSelected){
+
+            
+                lettere.style.color = colori.coloreSelected;
+                lettere.style.fontSize = '35px';
+                lettere.style.fontFamily = 'fantasy';
+               
+            }
+                
+             else if(lettere.style.color == this.colori.coloreSelected && this.colori.coloreSelected)
+             {
+
+                lettere.style.color = 'black';
+                
+                
+            }
+        }
+    }

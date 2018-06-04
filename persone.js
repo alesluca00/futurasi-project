@@ -23,6 +23,7 @@ class Persone {
             var nomeCognome_i = document.createTextNode(this.persone[i].nome + ' ' + this.persone[i].cognome);
             divNomeCognome_i.classList.add("nome_cognome");
             divNomeCognome_i.appendChild(nomeCognome_i);
+            
             var avatar_i = document.createElement("img");
 
             avatar_i.src = this.persone[i].img;
@@ -31,6 +32,7 @@ class Persone {
             divPersona_i.appendChild(divNomeCognome_i);
             divPersona_i.setAttribute("fiscale", this.persone[i].fiscale);
             divPersona_i.setAttribute("nome", this.persone[i].nome);
+
             
             divPersona_i.classList.add(this.persone[i].style.class);
             divPersona_i.fiscale = this.persone[i].fiscale;

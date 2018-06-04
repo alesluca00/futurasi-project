@@ -9,6 +9,7 @@ class Server {
                 style: {
             
                     class:"avatar",
+                    backgroundColor: "white",
                 }
             }, {
                 nome: "Franco",

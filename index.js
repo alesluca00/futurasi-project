@@ -8,16 +8,14 @@ persone.toView();
 var colori = new Colori(server.getColori());
 colori.toView();
 
-var titolo = new Titolo();
-titolo.toView();
-console.log("index:titolo", titolo.titoloDOM);
-
 var temi = new Temi(server.getTemi());
 temi.toView();
 
 var azioni = new Azioni(persone, colori, temi);
 
 var textBox = document.getElementById('textBox');
+
+
 
 /*******************************************EventListener PERSONA***************************************** */
 
@@ -111,27 +109,52 @@ console.log("TEMA SEL: ", value);
 
 }
 /*******************************************EventListener TITOLI******************************************/
+
 console.log("prova", document.getElementsByTagName('h1'));
 var domTagName = null;
 var arrayTitolo = document.getElementsByTagName('h1');
-//for( var i = 0; i < arrayTitolo.length; i++){
+console.log('arrayTitolo::', arrayTitolo);
+
+for( var i = 0; i < arrayTitolo.length; i++){
+
+    var bool = false;
+    if(i == 0) {bool = true;}
+    firstTitle = arrayTitolo[i].innerText;
+    arrayTitolo[i].innerHTML = '';
+   
+    var arrayLettere = firstTitle.split('');
+    console.log('innerhtml::', arrayTitolo[i].innerHTML);
+    console.log('arrayTitolo::', arrayTitolo[i]);
+ 
+  
+    for ( var a = 0; a < arrayLettere.length; a++)
+    {
     
-   // domTagName = arrayTitolo[i];
-    console.log("titoli", domTagName);
-    arrayTitolo.addEventListener('mouseover', (function(arrayTitolo){
-        return function(){
-           arrayTitolo = document.createElement('div');
-            arrayTitolo.setAttribute('pos', i);
-            console.log("vettore ora", arrayTitolo);
-            //azioni.conversioneStringArray(domTagName);
-            /*for( var i = 0; i < vettoreLettere.length; i++){
-                console.log("vettore: ", vettoreLettere[i]);
-                if(vettoreLettere[i]==domTagName){
-                    vettoreLettere[i].style.color="red";
-                }*/
+        var lettere = document.createElement('span');
+    
+        lettere.setAttribute('pos', a);
+        lettere.innerHTML = arrayLettere[a];
+        arrayLettere[a] = '';
+        console.log('lettere', lettere);
+        
+        if(bool == true){
+            lettere.style.backgroundColor = '#E8E8E8';
+        }
+
+        lettere.classList.add('lettera');
+        console.log('arrayLettere[i]::', arrayLettere[a]);
+        
+        console.log('entra', a);
+        arrayTitolo[i].appendChild(lettere);
+        console.log('rrrrrrrrrrrrrrr',document.getElementsByTagName('h1')[i].textContent );
+        
+        lettere.addEventListener('mouseover', (function(lettere){
             
-          
-       // }
-    //})(arrayTitolo[i].innerHTML));
-            }
-}));
+                return function(){
+                    azioni.changeLetter(lettere);
+                }
+            
+        })(lettere));
+    
+    }
+}
