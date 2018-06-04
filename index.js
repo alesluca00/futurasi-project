@@ -24,7 +24,7 @@ for(var i=0; i < persone.persone.length; i++) {
     persone.personeDOM.children[i].addEventListener('click', ((persona) => {
 
         return function() { 
-            azioni.resetBorder(persona.cognome);
+            azioni.resetBorder();
             azioni.changeBorder(persona.cognome);
             azioni.SelectPersona(persona.fiscale);
             
@@ -76,7 +76,11 @@ for(var i=0; i < persone.persone.length; i++) {
     domColor.addEventListener('click', (function(value) {
 
         return function() {
+
+            azioni.resetBorderColor();
             azioni.SelectColor(value);
+            azioni.changeBorderColor(colori.coloreSelected);
+           
         }
 
     })(colori.colori[i].value));
@@ -142,7 +146,7 @@ for( var i = 0; i < arrayTitolo.length; i++){
         }
 
         lettere.classList.add('lettera');
-        console.log('arrayLettere[i]::', arrayLettere[a]);
+        
         
         console.log('entra', a);
         arrayTitolo[i].appendChild(lettere);
@@ -151,7 +155,7 @@ for( var i = 0; i < arrayTitolo.length; i++){
         lettere.addEventListener('mouseover', (function(lettere){
             
                 return function(){
-                    azioni.changeLetter(lettere);
+                    azioni.changeLetter(lettere, bool);
                 }
             
         })(lettere));

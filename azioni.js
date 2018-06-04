@@ -85,6 +85,14 @@ class Azioni {
         
         }
     }
+    resetBorderColor() {
+
+        for (var i = 0; i < this.colori.colorsDOM.children.length; i++) {
+
+            this.colori.colorsDOM.children[i].style.border = '1px solid black'; 
+        
+        }
+    }
 
     changeBorder(cognome) {
 
@@ -101,25 +109,64 @@ class Azioni {
 
         }
     }
+    changeBorderColor(colore) {
+
+        var trovato = false;
+
+        for (var i = 0; i < this.colori.colorsDOM.children.length && !trovato; i++) {
+            console.log("coloreeeee: ", colore);
+            console.log("bella li: " , this.colori.colori[i].value);
+
+            if (this.colori.colori[i].value == colore) {
+
+                this.colori.colorsDOM.children[i+1].style.border = '2px solid blue';
+                trovato = true;
+                    
+            }  
+        }
+    }
+
     
     changeLetter(lettere){
         
-       
-        if(this.colori.coloreSelected && lettere.style.color != this.colori.coloreSelected){
+        
+       if(this.colori.coloreSelected == null) this.colori.coloreSelected = '';
+        
+        
+                
+             if( lettere.style.color == this.colori.coloreSelected )
+             { 
+                console.log('copateeeeee---------->');
+               // if(bool == true){
+                lettere.style.color = 'black';
+                lettere.style.fontSize = ''
+                lettere.style.fontFamily = 'Arial, Helvetica, sans-serif';
+                //lettere.style.fontFamily = 'Arial, Helvetica, sans-serif';
+                //lettere.style.fontSize = '25px';
+                //}
+               // else{
 
-            
-                lettere.style.color = colori.coloreSelected;
+                //lettere.style.color = 'black';
+                
+                //lettere.style.fontSize = '15px';
+
+                }
+                
+                else if(this.colori.coloreSelected){
+                 
+                
+                console.log('this.colori.coloreSelected', this.colori.coloreSelected)
+                console.log('lettere.style.color', lettere.style.color);
+                lettere.style.color = this.colori.coloreSelected;
                 lettere.style.fontSize = '35px';
                 lettere.style.fontFamily = 'fantasy';
                
             }
                 
-             else if(lettere.style.color == this.colori.coloreSelected && this.colori.coloreSelected)
-             {
-
-                lettere.style.color = 'black';
-                
-                
             }
         }
-    }
+    
+        //}
+       
+
+    

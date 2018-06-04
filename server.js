@@ -113,113 +113,113 @@ class Server {
 
     getColori() {
         return [{
-                value: "Green",
+                value: "green",
                 style: {
                     class: "elem_tabella_colori"
                 }
             }, {
-                value: "Red",
+                value: "red",
                 style: {
                     class: "elem_tabella_colori"
                 }
             }, {
-                value: "Yellow",
+                value: "yellow",
                 style: {
                     class: "elem_tabella_colori"
                 }
             }, {
-                value: "Orange",
+                value: "orange",
                 style: {
                     class: "elem_tabella_colori"
                 }
             }, {
-                value: "Brown",
+                value: "brown",
                 style: {
                     class: "elem_tabella_colori"
                 }
             }, {
-                value: "Violet",
+                value: "violet",
                 style: {
                     class: "elem_tabella_colori"
                 }
             }, {
-                value: "Pink",
+                value: "pink",
                 style: {
                     class: "elem_tabella_colori"
                 }
             }, {
-                value: "Blue",
+                value: "blue",
                 style: {
                     class: "elem_tabella_colori"
                 }
             }, {
-                value: "Salmon",
-                style: {
-                    class: "elem_tabella_colori"
-                
-                }
-            }, {
-                value: "Lime",
+                value: "salmon",
                 style: {
                     class: "elem_tabella_colori"
                 
                 }
             }, {
-                value: "Beige",
+                value: "lime",
                 style: {
                     class: "elem_tabella_colori"
                 
                 }
             }, {
-                value: "Grey",
+                value: "beige",
                 style: {
                     class: "elem_tabella_colori"
                 
                 }
             }, {
-                value: "Navy",
-                style: {
-                    class: "elem_tabella_colori"
-                }
-            }, {
-                value: "Silver",
+                value: "grey",
                 style: {
                     class: "elem_tabella_colori"
                 
                 }
             }, {
-                value: "Gold",
+                value: "navy",
+                style: {
+                    class: "elem_tabella_colori"
+                }
+            }, {
+                value: "silver",
+                style: {
+                    class: "elem_tabella_colori"
+                
+                }
+            }, {
+                value: "gold",
                 name: "Gold",
                 style: {
                     class: "elem_tabella_colori"
                 
                 }
             }, {
-                value: "Aqua",
+                value: "aqua",
                 style: {
                     class: "elem_tabella_colori"
             
                 }
             }, {
-                value: "Peru",
+                value: "peru",
                 style: {
                     class: "elem_tabella_colori"
                     
                 }
             }, {
-                value: "Black",
+                value: "black",
                 style: {
                     class: "elem_tabella_colori"
             
                 }
             },{
-                value: "Teal",
+                value: "teal",
                 style: {
                     class: "elem_tabella_colori"
             
                 }
             },{
-                value: "White",
+                value: "white",
                 style: {
                     class: "elem_tabella_colori"              
             
