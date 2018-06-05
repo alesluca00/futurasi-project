@@ -1,5 +1,4 @@
 * {
-    background-color: white;
     margin: 0px;
     padding: 0px;
 }
@@ -7,6 +6,7 @@
 .flex_container {
     display: flex;
     height: 100%;
+    
 }
 
 .persone  {
@@ -27,7 +27,7 @@
 
 
 .colori {
-    border: 1px solid rgb(184, 182, 182);
+    border: 1px solid white;
     display: flex;
     height: 100%;
     width: 400px;
@@ -45,13 +45,6 @@
     width: 100%;
     text-align: center
 }
-
-#titolo {
-    height: 3em;
-    color: black;
-    background-color: unset;
-}
-
 
 
 .colori h1 {
@@ -79,22 +72,12 @@
 
 .header {
     background-color: #E8E8E8;
-    
     height: 50px;
     border-bottom: 1px solid grey;
-    vertical-align: middle;
     text-align: center;
     margin-bottom: 5px;
+    top: 20px;
 }
-
-.header h1 {
-    background-color: unset;
-    height: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    
-
-}
-
 
 
 .elem_tabella_colori {
@@ -174,11 +157,167 @@
 }
 .lettera{
     
-    
+   
+    font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    
+
     
     
 }
+.coloreScelto{
+    position:absolute;
+    top:20px;
+    width: 150px;
+    height: 20px;
+    background-color: #E8E8E8;
+}
+
+.coloreScelto h1{
+    font-size: 15px;
+    text-align: center;
+}
+
+.colore{
+
+   position:absolute;
+   top: 1px;
+   left: 110%;
+    width:15px;
+    height:15px;
+    border: 1px solid black;
+    background-color: white;
+}
+.coloreScelto h1{
+
+    text-align: center;
+    font-size: 12px;
+    
+}
+
+
+
+.addNome{
+
+    border: 1px solid rgb(184, 182, 182);
+    display: flex;
+    height: 100%;
+    width: 400px;
+    flex-wrap: wrap;
+}
+
+.addCognome{
+
+    border: 1px solid rgb(184, 182, 182);
+    display: flex;
+    height: 100%;
+    width: 400px;
+    flex-wrap: wrap;
+}
+.addImmagine{
+
+    border: 1px solid rgb(184, 182, 182);
+    display: flex;
+    height: 100%;
+    width: 400px;
+    flex-wrap: wrap;
+}
+.addFiscale{
+
+    border: 1px solid rgb(184, 182, 182);
+    display: flex;
+    height: 100%;
+    width: 400px;
+    flex-wrap: wrap;
+}
+
+.vuoto{
+    display: flex;
+    height: 25px;
+    width: 400px;
+    flex-wrap: wrap;
+    background-color: white;
+   
+}
+.addNome h1{
+
+    
+    font-size: 18px;
+    width: 100%;
+    text-align: center
+}
+
+.addCognome h1{
+
+    
+    font-size: 18px;
+    width: 100%;
+    text-align: center
+}
+
+
+.addImmagine h1{
+
+    
+    font-size: 18px;
+    width: 100%;
+    text-align: center
+}
+
+.addFiscale h1{
+
+    
+    font-size: 18px;
+    width: 100%;
+    text-align: center
+}
+
+.addNomeInput{
+
+    
+    border: 1px solid black;
+    margin: 0.75rem;
+    position: relative;
+    left:100px;
+    text-align: left; /* orizzontale */
+    line-height: 25px; /* verticale */
+}
+
+.addCognomeInput{
+
+    
+    border: 1px solid black;
+    margin: 0.75rem;
+    position: relative;
+    left:100px;
+    text-align: left; /* orizzontale */
+    line-height: 25px; /* verticale */
+}
+
+.addFiscaleInput{
+
+    
+    border: 1px solid black;
+    margin: 0.75rem;
+    position: relative;
+    left:100px;
+    text-align: left; /* orizzontale */
+    line-height: 25px; /* verticale */
+}
+.addImmagineInput{
+
+    
+    border: 1px solid black;
+    margin: 0.75rem;
+    position: relative;
+    left:100px;
+    text-align: left; /* orizzontale */
+    line-height: 25px; /* verticale */
+}
+
+
+
 
 
 

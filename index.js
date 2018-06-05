@@ -2,6 +2,9 @@
 
 var server = new Server(); 
 
+
+
+
 var persone = new Persone(server.getPersone());
 persone.toView();
 
@@ -19,6 +22,11 @@ var textBox = document.getElementById('textBox');
 
 /*******************************************EventListener PERSONA***************************************** */
 
+
+////////////////////////////////////////////azioni.addAvatar()///////////////////////////////////////////////
+
+
+var pp = null;
 for(var i=0; i < persone.persone.length; i++) {
 
     persone.personeDOM.children[i].addEventListener('click', ((persona) => {
@@ -28,38 +36,44 @@ for(var i=0; i < persone.persone.length; i++) {
             azioni.changeBorder(persona.cognome);
             azioni.SelectPersona(persona.fiscale);
             
-            if (colori.coloreSelected) { 
-                    
+                for( var p = 0 ; p < persone.persone.length; p++)
+                if(persone.persone[p].fiscale == '') pp = p;
+            
+
+            persone.personeDOM.children[pp] = (azioni.addAvatar(pp));
+            if (colori.coloreSelected)  
                 azioni.ChangeColorPersona(persona.fiscale);
-            }
-    
-            if(temi.themeSelected) {
+            if(temi.themeSelected) 
                azioni.ChangeTheme();
-            }
+            
         }
     })(persone.persone[i]));
 }
 
 
-    var parola_completa = "";
+    var parola_completa = '';
     var controllo=false;
-    var backSpaceCounter=null;
+    
     
     textBox.addEventListener('keyup', (function(event){
-
+        
         
         if(event.key == 'Enter') {
             
-            
+            console.log('entra ciclo::');
             azioni.ChangeNamePersona(parola_completa);
             parola_completa = '';
+            
               
         }
         
        
-        else{
-            parola_completa = parola_completa + event.key;
-        }   
+        else {
+            
+            
+            parola_completa = azioni.controllo(parola_completa,event.key);
+            console.log('parola_completa', parola_completa);
+      }
     }));
     
 
@@ -114,9 +128,9 @@ console.log("TEMA SEL: ", value);
 }
 /*******************************************EventListener TITOLI******************************************/
 
-console.log("prova", document.getElementsByTagName('h1'));
+console.log("prova", document.getElementsByClassName('header'));
 var domTagName = null;
-var arrayTitolo = document.getElementsByTagName('h1');
+var arrayTitolo = document.getElementsByClassName('header');
 console.log('arrayTitolo::', arrayTitolo);
 
 for( var i = 0; i < arrayTitolo.length; i++){
@@ -150,12 +164,12 @@ for( var i = 0; i < arrayTitolo.length; i++){
         
         console.log('entra', a);
         arrayTitolo[i].appendChild(lettere);
-        console.log('rrrrrrrrrrrrrrr',document.getElementsByTagName('h1')[i].textContent );
+        console.log('rrrrrrrrrrrrrrr',document.getElementsByClassName('header')[i].textContent );
         
         lettere.addEventListener('mouseover', (function(lettere){
             
                 return function(){
-                    azioni.changeLetter(lettere, bool);
+                    azioni.changeLetter(lettere);
                 }
             
         })(lettere));

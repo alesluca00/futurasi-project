@@ -105,8 +105,18 @@ class Server {
                 img: "img/barazza.jpg",
                 style: {
                     class: "avatar",
+                }
+            },{
+
+                nome: "",
+                cognome: "",
+                fiscale: "",
+                img: "",
+                style: {
+                    class: "avatar",
 
             }
+            
             
 }];
 }
@@ -224,7 +234,7 @@ class Server {
                     class: "elem_tabella_colori"              
             
                 }
-            }
+            },
         ];
 
     }
