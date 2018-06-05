@@ -130,49 +130,45 @@ console.log("TEMA SEL: ", value);
 
 console.log("prova", document.getElementsByClassName('header'));
 var domTagName = null;
-var arrayTitolo = document.getElementsByClassName('header');
-console.log('arrayTitolo::', arrayTitolo);
+var parola = document.getElementsByClassName('header')[0].innerText;
 
-for( var i = 0; i < arrayTitolo.length; i++){
+console.log('arrayTitolo::', parola);
+var arrayTitolo = parola.split('');
 
-    var bool = false;
-    if(i == 0) {bool = true;}
-    firstTitle = arrayTitolo[i].innerText;
-    arrayTitolo[i].innerHTML = '';
-   
-    var arrayLettere = firstTitle.split('');
-    console.log('innerhtml::', arrayTitolo[i].innerHTML);
-    console.log('arrayTitolo::', arrayTitolo[i]);
- 
   
-    for ( var a = 0; a < arrayLettere.length; a++)
+    for ( var a = 0; a < arrayTitolo.length; a++)
     {
-    
+       var prelettera = ''
         var lettere = document.createElement('span');
     
         lettere.setAttribute('pos', a);
-        lettere.innerHTML = arrayLettere[a];
-        arrayLettere[a] = '';
+       
+        lettere.innerHTML= arrayTitolo[a];
+        
+      
+        arrayTitolo[a] = '';
         console.log('lettere', lettere);
         
-        if(bool == true){
+        
+        
             lettere.style.backgroundColor = '#E8E8E8';
-        }
+        
 
         lettere.classList.add('lettera');
         
         
         console.log('entra', a);
-        arrayTitolo[i].appendChild(lettere);
-        console.log('rrrrrrrrrrrrrrr',document.getElementsByClassName('header')[i].textContent );
+        //arrayTitolo[a].appendChild(lettere);
+        console.log('rrrrrrrrrrrrrrr', document.getElementsByTagName('span'));
+
+       
         
         lettere.addEventListener('mouseover', (function(lettere){
             
-                return function(){
-                    azioni.changeLetter(lettere);
-                }
-            
-        })(lettere));
-    
+            return function(){
+
+                lettere[a].style.color = 'black';
+                azioni.changeLetter(lettere);     
+            }         
+        })(lettere));    
     }
-}

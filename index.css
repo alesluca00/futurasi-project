@@ -27,7 +27,7 @@
 
 
 .colori {
-    border: 1px solid white;
+    border: 1px solid rgb(184, 182, 182);
     display: flex;
     height: 100%;
     width: 400px;
@@ -108,6 +108,7 @@
     height: 150px;
 }
 
+
 .defaultIcon{
 
     width: 100px;
@@ -176,7 +177,7 @@
 
 .coloreScelto h1{
     font-size: 15px;
-    text-align: center;
+    text-align: right;
 }
 
 .colore{
@@ -191,7 +192,7 @@
 }
 .coloreScelto h1{
 
-    text-align: center;
+    text-align: right;
     font-size: 12px;
     
 }
@@ -233,13 +234,27 @@
 }
 
 .vuoto{
+    border: 1px solid rgb(184, 182, 182);
     display: flex;
     height: 25px;
     width: 400px;
     flex-wrap: wrap;
     background-color: white;
+    text-align: center;
+    vertical-align: middle;
+   
    
 }
+.vuoto h1{
+
+    font-size: 17px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    color: black
+}
+
+
 .addNome h1{
 
     
@@ -310,8 +325,9 @@
     
     border: 1px solid black;
     margin: 0.75rem;
+    width: 250px;
     position: relative;
-    left:100px;
+    left:15%;
     text-align: left; /* orizzontale */
     line-height: 25px; /* verticale */
 }

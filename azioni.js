@@ -137,7 +137,7 @@ class Azioni {
                     this.colori.colorsDOM.children[i+1].style.border = '2px solid red';
                 }
                 else{
-                    
+
                     this.colori.colorsDOM.children[i+1].style.border = '2px solid blue';
                 }
 
@@ -148,26 +148,17 @@ class Azioni {
     }
 
     
-    changeLetter(lettere, bool){
+    changeLetter(lettere){
         
-        
-       if(this.colori.coloreSelected == null) this.colori.coloreSelected = '';
-        
-        if( lettere.style.color == this.colori.coloreSelected )
-        { 
-            lettere.style.color = 'black';
-            lettere.style.fontSize = ''
-            lettere.style.fontFamily = 'Arial, Helvetica, sans-serif'; 
-        }
-        else if(this.colori.coloreSelected){
-                
-            console.log('this.colori.coloreSelected', this.colori.coloreSelected)
-            console.log('lettere.style.color', lettere.style.color);
+  
+        if(this.colori.coloreSelected){ 
+            
             lettere.style.color = this.colori.coloreSelected;
             lettere.style.fontSize = '35px';
             lettere.style.fontFamily = 'fantasy';   
         }           
-    }  
+    }
+  
 
     controllo(parola_completa, event){
       
