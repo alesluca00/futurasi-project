@@ -14,6 +14,9 @@ colori.toView();
 var temi = new Temi(server.getTemi());
 temi.toView();
 
+var titolo = new Titolo();
+titolo.toView();
+
 var azioni = new Azioni(persone, colori, temi);
 
 var textBox = document.getElementById('textBox');
@@ -127,48 +130,27 @@ console.log("TEMA SEL: ", value);
 
 }
 /*******************************************EventListener TITOLI******************************************/
+for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
 
-console.log("prova", document.getElementsByClassName('header'));
-var domTagName = null;
-var parola = document.getElementsByClassName('header')[0].innerText;
+    titolo.titoloDOM.children[i].addEventListener('mouseover', (function(lettera){
+                
+        return function(){
 
-console.log('arrayTitolo::', parola);
-var arrayTitolo = parola.split('');
+            lettera.classList.add("lettera-loca");
+                
+        }   
+                
+    })(titolo.titoloDOM.children[i])); 
 
-  
-    for ( var a = 0; a < arrayTitolo.length; a++)
-    {
-       var prelettera = ''
-        var lettere = document.createElement('span');
-    
-        lettere.setAttribute('pos', a);
-       
-        lettere.innerHTML= arrayTitolo[a];
-        
-      
-        arrayTitolo[a] = '';
-        console.log('lettere', lettere);
-        
-        
-        
-            lettere.style.backgroundColor = '#E8E8E8';
-        
+    titolo.titoloDOM.children[i].addEventListener('mouseleave', (function(lettera){
+                
+        return function(){
 
-        lettere.classList.add('lettera');
-        
-        
-        console.log('entra', a);
-        //arrayTitolo[a].appendChild(lettere);
-        console.log('rrrrrrrrrrrrrrr', document.getElementsByTagName('span'));
+            lettera.classList.remove("lettera-loca");
+                
+        }   
+                
+    })(titolo.titoloDOM.children[i])); 
 
-       
-        
-        lettere.addEventListener('mouseover', (function(lettere){
-            
-            return function(){
+}
 
-                lettere[a].style.color = 'black';
-                azioni.changeLetter(lettere);     
-            }         
-        })(lettere));    
-    }

@@ -167,6 +167,12 @@
     
     
 }
+
+.lettera-loca {
+    font-size: 30px;
+    color: green;
+}
+
 .coloreScelto{
     position:absolute;
     top:20px;
