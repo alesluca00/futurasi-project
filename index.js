@@ -27,9 +27,25 @@ var textBox = document.getElementById('textBox');
 
 
 ////////////////////////////////////////////azioni.addAvatar()///////////////////////////////////////////////
+var pulsanteloco = document.getElementById('pulsante-loco');
 
+pulsanteloco.addEventListener('click', (function() {
+    return function(){
+        
+        console.log("pulsanteloco::clicked");
+        var i = persone.personeDOM.children.length;
+        
+        azioni.addAvatar(i);
+        
+        
+      
 
+    }
+    
+})());
+console.log('lunghezzzzaaaaaaaa----->',persone.persone.length );
 var pp = null;
+
 for(var i=0; i < persone.persone.length; i++) {
 
     persone.personeDOM.children[i].addEventListener('click', ((persona) => {
@@ -39,11 +55,6 @@ for(var i=0; i < persone.persone.length; i++) {
             azioni.changeBorder(persona.cognome);
             azioni.SelectPersona(persona.fiscale);
             
-                for( var p = 0 ; p < persone.persone.length; p++)
-                if(persone.persone[p].fiscale == '') pp = p;
-            
-
-            persone.personeDOM.children[pp] = (azioni.addAvatar(pp));
             if (colori.coloreSelected)  
                 azioni.ChangeColorPersona(persona.fiscale);
             if(temi.themeSelected) 
@@ -135,7 +146,7 @@ for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
     titolo.titoloDOM.children[i].addEventListener('mouseover', (function(lettera){
                 
         return function(){
-
+            
             lettera.classList.add("lettera-loca");
                 
         }   
@@ -154,22 +165,8 @@ for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
 
 }
 
-var filepicker = document.getElementById('file-picker');
 
-filepicker.addEventListener('change', (function(filepicker) {
-    return function(){
-        console.log("filepicker::Changed", filepicker.value);
-    }
-    
-})(filepicker));
 
-var pulsanteloco = document.getElementById('pulsante-loco');
 
-pulsanteloco.addEventListener('click', (function() {
-    return function(){
-        console.log("pulsanteloco::clicked");
-    }
-    
-})());
 
 

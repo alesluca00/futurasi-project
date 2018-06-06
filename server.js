@@ -106,19 +106,7 @@ class Server {
                 style: {
                     class: "avatar",
                 }
-            },{
-
-                nome: "",
-                cognome: "",
-                fiscale: "",
-                img: "",
-                style: {
-                    class: "avatar",
-
-            }
-            
-            
-}];
+            }];
 }
 
     getColori() {

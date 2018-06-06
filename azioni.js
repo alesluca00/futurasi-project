@@ -183,22 +183,68 @@ class Azioni {
         }return parola_completa;
     } 
     
-    addAvatar(i)
-    {
-        var nome = document.getElementsByClassName('addNomeInput')[0].value;
-   
-        var cognome = document.getElementsByClassName('addCognomeInput')[0].value;
     
-        var fiscale = document.getElementsByClassName('addFiscaleInput')[0].value;
-       
+    addAvatar(i){
         
-        var immagine = document.createElement("img");
-        immagine = document.getElementsByClassName('addImmagineInput')[0].value;
+        /////////////////////////////////////////************CREAZIONE NUOVO AVATAR********************************* */
+        var predefinito = { 
+            nome: "",
+            cognome: "",
+            fiscale: "",
+            img: "",
+        }
+
+        console.log('lunghezze array--->', this.persone.persone);
+        this.persone.persone.push(predefinito);
+
+        var divPersona_i = document.createElement("div");  
+        var avatar_i = document.createElement("img");
+        var divNomeCognome_i = document.createElement("div"); 
+        avatar_i.src = document.getElementsByClassName('addImmagineInput')[0].value;
+        
+        
         
        
-        this.persone.personeDOM.children[i].getElementsByClassName("nome_cognome")[0].innerHTML = nome + ' ' +  cognome;
-        this.persone.personeDOM.children[i].getElementsByTagName('img')[0].src = immagine;
-        console.log('immagine', this.persone.personeDOM.children[i].getElementsByClassName("nome_cognome"));
+       var nome = document.getElementsByClassName('addNomeInput')[0].value;
+       var cognome = document.getElementsByClassName('addCognomeInput')[0].value;
+       var fiscale = document.getElementsByClassName('addFiscaleInput')[0].value;
+
+       if(nome == '' || cognome =='' || fiscale == '' || avatar_i == '')
+       {
+           alert('Devi completare TUTTI i campi');
+       }
+       else{
+       console.log('avatar_i', avatar_i);
+       
+       divPersona_i.setAttribute("nome", nome);
+       divPersona_i.setAttribute("img", avatar_i);
+       divPersona_i.setAttribute("fiscale", fiscale);
+       
+       this.persone.persone[i].nome = nome;
+       this.persone.persone[i].cognome = cognome;
+       this.persone.persone[i].fiscale = fiscale;
+       this.persone.persone[i].img = avatar_i.src;
+       
+        var nomeCognome_i = document.createTextNode(this.persone.persone[i].nome + ' ' + this.persone.persone[i].cognome);
+        
+        divNomeCognome_i.appendChild(nomeCognome_i);
+        divPersona_i.appendChild(avatar_i);
+        divPersona_i.appendChild(divNomeCognome_i);
+        
+        
+        
+       
+        divPersona_i.classList.add('avatar');
+        divPersona_i.fiscale = this.persone.persone[i].fiscale;
+        this.persone.personeDOM.appendChild(divPersona_i);
+        
+
+        
+       
+        console.log('persone.persone',divPersona_i);
+
+    
+       }
     
         }
 }               

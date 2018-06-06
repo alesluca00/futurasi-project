@@ -82,6 +82,7 @@
 
 .elem_tabella_colori {
     width: 20px;
+    cursor: pointer;
     height: 20px;
     border: 1px solid black;
     margin: 0.15rem;
@@ -95,22 +96,28 @@
     padding: 3px;
     text-align: center;
     margin: 0.5rem;
-    width: 170px;
-    height: 200px;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
     border: 1px solid black;
     color: black;
     background-color: white;
     
 }
 
+
 .avatar img {
     width: 150px;
     height: 150px;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
 }
 
 
 .defaultIcon{
 
+    cursor: pointer;
     width: 100px;
     height: 40px;
     border: 1px solid black;
@@ -120,7 +127,7 @@
 }
 
 .firstThemeIcon{
-
+    cursor: pointer;
     width: 100px;
     height: 40px;
     border: 1px dotted black;
@@ -131,7 +138,7 @@
 
 .secondThemeIcon{
 
-    
+    cursor: pointer;
     width: 100px;
     height: 40px;
     border: 2px solid salmon;
@@ -152,10 +159,7 @@
 
 }
 
-.nome_cognome{
 
-    background-color: white;
-}
 .lettera{
     
    
@@ -171,6 +175,13 @@
 #pulsante-loco {
     cursor: pointer;
     border: 1px solid black;
+    align-content: center;
+    text-align: center;  
+    width: 300px;
+    height: 50px;
+    position: absolute;
+    left:2%;
+    top: 91%; 
 }
 
 .lettera-loca {
