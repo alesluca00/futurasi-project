@@ -168,6 +168,11 @@
     
 }
 
+#pulsante-loco {
+    cursor: pointer;
+    border: 1px solid black;
+}
+
 .lettera-loca {
     font-size: 30px;
     color: green;

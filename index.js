@@ -154,3 +154,22 @@ for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
 
 }
 
+var filepicker = document.getElementById('file-picker');
+
+filepicker.addEventListener('change', (function(filepicker) {
+    return function(){
+        console.log("filepicker::Changed", filepicker.value);
+    }
+    
+})(filepicker));
+
+var pulsanteloco = document.getElementById('pulsante-loco');
+
+pulsanteloco.addEventListener('click', (function() {
+    return function(){
+        console.log("pulsanteloco::clicked");
+    }
+    
+})());
+
+
