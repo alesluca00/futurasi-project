@@ -14,7 +14,7 @@
     <div class="header"><h1 id="titolo"></h1></div>
     <div class="coloreScelto"><h1>Color Selected:<div class='colore'></div></h1></div>
 
-    <div class="flex_container">
+    <div class="flex_container" ondrop='drop(event)' ondragover='allowDrop(event)'>
         <div class="azioni">
            
             <div id="colors" class="colori">
@@ -51,17 +51,11 @@
 
 <script src="server.js"></script>
 <script src="titolo.js"></script>
-
 <script src="persone.js"></script>
 <script src="colori.js"></script>
 <script src="temi.js"></script>
 <script src="insNomi.js"></script>
 <script src="azioni.js"></script>
-
-
-
-    
-
 <script src="index.js"></script>
 
 </html>

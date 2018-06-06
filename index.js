@@ -41,8 +41,26 @@ pulsanteloco.addEventListener('click', (function() {
       
 
     }
+
+
     
 })());
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("backgroundColor", ev.target.dataSet('backgroundColor'));
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("data-backgroundColor");
+    ev.target.appendChild(document.getElementById(data));
+}
+
 console.log('lunghezzzzaaaaaaaa----->',persone.persone.length );
 var pp = null;
 

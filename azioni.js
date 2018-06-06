@@ -88,15 +88,15 @@ class Azioni {
 
         for (var i = 0; i < this.persone.personeDOM.children.length; i++) {
 
-            this.persone.personeDOM.children[i].style.border = '1px solid black'; 
-        
+            this.persone.personeDOM.children[i].style.boxShadow = "none";
+    
         }
     }
     resetBorderColor() {
 
         for (var i = 1; i < this.colori.colorsDOM.children.length; i++) {
-
-            this.colori.colorsDOM.children[i].style.border = '1px solid black'; 
+            
+            this.colori.colorsDOM.children[i].style.boxShadow = "none";    
         
         }
     }
@@ -111,11 +111,11 @@ class Azioni {
 
                 if(this.colori.coloreSelected=="blue"){
 
-                    this.persone.personeDOM.children[i].style.border = '3px solid red';
+                    this.persone.personeDOM.children[i].style.boxShadow = "2px  1px 1px red, -2px -2px 1px red, 2px -2px 1px red, 2px  2px 1px red";
                 
                 }
                 else{
-                    this.persone.personeDOM.children[i].style.border = '3px solid blue';
+                    this.persone.personeDOM.children[i].style.boxShadow = "2px  1px 1px blue, -2px -2px 1px blue, 2px -2px 1px blue, 2px  2px 1px blue";
                 }
                 trovato = true;    
             }  
@@ -134,11 +134,15 @@ class Azioni {
 
                 if(this.colori.coloreSelected=="blue"){
 
-                    this.colori.colorsDOM.children[i+1].style.border = '2px solid red';
+                    //this.colori.colorsDOM.children[i+1].style.border = '2px solid red';
+                    this.colori.colorsDOM.children[i+1].style.boxShadow = "2px  1px 1px red, -2px -2px 1px red, 2px -2px 1px red, 2px  2px 1px red";
+
                 }
                 else{
 
-                    this.colori.colorsDOM.children[i+1].style.border = '2px solid blue';
+                    //this.colori.colorsDOM.children[i+1].style.border = '2px solid blue';
+                    this.colori.colorsDOM.children[i+1].style.boxShadow = "2px  1px 1px blue, -2px -2px 1px blue, 2px -2px 1px blue, 2px  2px 1px blue";
+
                 }
 
                 trovato = true;
@@ -246,7 +250,15 @@ class Azioni {
     
        }
     
-        }
+    }
+
+    iniziaTrascinamento(evento){ 
+        evento.dataTransfer.setData("text", evento.target.dataset.valore); 
+        evento.dataTransfer.effectAllowed = 'copy'; 
+        icona = document.createElement('img'); 
+        icona.src = evento.target.dataset.icona; 
+        evento.dataTransfer.setDragImage(icona, -10, -10);
+      } 
 }               
                 
         

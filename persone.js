@@ -36,6 +36,8 @@ class Persone {
             
             divPersona_i.classList.add('avatar');
             divPersona_i.fiscale = this.persone[i].fiscale;
+            divPersona_i.setAttribute('ondrop', 'drop(event)');
+            divPersona_i.setAttribute('ondragover', 'allDrop(event)');
 
             this.personeDOM.appendChild(divPersona_i);
         
