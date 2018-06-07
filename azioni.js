@@ -222,13 +222,7 @@ class Azioni {
     
     }
 
-    iniziaTrascinamento(evento){ 
-        evento.dataTransfer.setData("text", evento.target.dataset.valore); 
-        evento.dataTransfer.effectAllowed = 'copy'; 
-        icona = document.createElement('img'); 
-        icona.src = evento.target.dataset.icona; 
-        evento.dataTransfer.setDragImage(icona, -10, -10);
-      } 
+   
 }               
                 
         

@@ -14,7 +14,7 @@ var titolo = new Titolo();
 titolo.toView();
 
 var azioni = new Azioni(persone, colori, temi);
-var dragAndDrop = new DragAndDrop(persone, colori, temi);
+
 
 var textBox = document.getElementById('textBox');
 
@@ -150,24 +150,77 @@ for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
 }
 
 
-for( var i = 0; i < colori.colorsDOM.children.length;i++){
-    colori.colorsDOM.children[i].addEventListener("dragstart", (function(colore){
+/*for( var i = 0; i < colori.colorsDOM.children.length;i++){
+    colori.colorsDOM.children[i].addEventListener("dragstart", (function(div_colore){
+        //console.log('colore--->', event);
         return function(){
 
-            
-            console.log('colore--->', colore);
-                dragAndDrop.allowDrop(colore);
-                dragAndDrop.drag(colore);
-                //dragAndDrop.allowDrop(event);
-                //colore.dragAndDrop.inizioDrag(event);
+            */
+            console.log('colore--->', event);
+                //dragAndDrop.allowDrop(colore);
+                
+                function dragstart(event){
+
+                    event.dataTransfert.setData('text', event.target.id);
+                    console.log('entra bibbi------------------->');
+                    event.dataTransfert.effectAllowed = 'copy';
+                    event.dataTransfert.dropEffect = 'copy';
+                    event.dataTransfert.setData('text', event.target.getAttribute('value'));
+
+                }
+                
+                function dragOver(event){
+
+                    event.preventDeafault();
+
+                }
+
+                function drop(event){
+
+                    event.preventDeafault();
+                    var data = event.dataTransfert.getData('text');
+                    console.log('data::',data);
+                    event.target.appendChild(document.getElementById(data));    
+                }
+
+                function dragOver(event){
+
+                    event.preventDeafault();
+
+                }
+                function drop(event)
+                {
+                    var nomeImgTrascinata = event.dataTransfert.getData('text');
+                    var oggettoDrop = event.target;
+
+                }
+
+                
                 
                 
                 //dragAndDrop.ondragstart(event);
                 
             
-        }
-    })(colori.colorsDOM.children[i].value));
+      /*  }
+    })( colori.colorsDOM.children[i]));
 }
+*/
+
+var filepicker = document.getElementById('file-picker');
+
+filepicker.addEventListener("change", (function(divFile){
+    //console.log('colore--->', event);
+    return function(){
+
+        
+
+        let persona = persone.personeDOM.children[0];
+        persona.getElementsByTagName('img')[0].src = 'img/' + divFile.value.split('\\')[divFile.value.split('\\').length - 1];
+            
+            
+        
+    }
+})(filepicker));
 
 
 

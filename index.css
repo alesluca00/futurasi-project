@@ -98,12 +98,32 @@
     margin: 0.5rem;
     width: 100%;
     max-width: 150px;
-    height: auto;
+    height: 255px;
+    
     border: 1px solid black;
     color: black;
     background-color: white;
     box-shadow: none;
+    
 }
+
+.avatar_img{
+
+    width: 100%;
+    max-width: 150px;
+    max-height: 220px;
+    height: 100%;
+}
+.bordoNero{
+
+    background-color: black;
+    width: 100%;
+    max-width: 150px;
+    max-height: 220px;
+    height: 100%;
+
+}
+
 
 
 .avatar img {
@@ -180,18 +200,18 @@
 #pulsante-loco {
     cursor: pointer;
     border: 1px solid black;
-    align-content: center;
+    align-content: middle;
     text-align: center;  
     width: 300px;
     height: 50px;
     position: absolute;
-    left:2%;
+    left:3.5%;
     top: 91%; 
 }
 
 .lettera-loca {
     font-size: 30px;
-    color: blac;
+    color: black;
 }
 
 .coloreScelto{
@@ -200,14 +220,14 @@
     width: 150px;
     height: 20px;
     background-color: #E8E8E8;
-    vertical-align: middle;
+    vertical-align: baseline;
 
 }
 
 .coloreScelto h1{
     font-size: 15px;
     text-align: right;
-    vertical-align: middle;
+    vertical-align: baseline;
 }
 
 .dragIcon img{
@@ -217,9 +237,9 @@
 }
 .colore{
 
-   position:absolute;
-   top: 1px;
-   left: 110%;
+    position:absolute;
+    top: 1px;
+    left: 110%;
     width:15px;
     height:15px;
     border: 1px solid black;
@@ -229,7 +249,7 @@
 .coloreScelto h1{
 
     text-align: right;
-    font-size: 12px;
+    font-size: 16px;
     
 }
 
@@ -287,7 +307,7 @@
     font-weight: bold;
     width: 100%;
     text-align: center;
-    color: black
+    color: black;
 }
 
 

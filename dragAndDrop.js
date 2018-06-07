@@ -10,11 +10,11 @@ class DragAndDrop {
     allowDrop(ev) {
         ev.preventDefault();
     }
-
-    drag(colore) {
-        console.log('evento::::', colore);
-        colore.dataTransfert.setData("text", colore.target.id);
+    dragstart(ev)
+    {
+        alert(ev);
     }
-    
+
+   
     
 }
