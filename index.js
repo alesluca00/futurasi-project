@@ -1,9 +1,5 @@
 
-
 var server = new Server(); 
-
-
-
 
 var persone = new Persone(server.getPersone());
 persone.toView();
@@ -18,6 +14,7 @@ var titolo = new Titolo();
 titolo.toView();
 
 var azioni = new Azioni(persone, colori, temi);
+var dragAndDrop = new DragAndDrop(persone, colori, temi);
 
 var textBox = document.getElementById('textBox');
 
@@ -37,29 +34,10 @@ pulsanteloco.addEventListener('click', (function() {
         
         azioni.addAvatar(i);
         
-        
-      
-
     }
-
-
-    
 })());
 
 
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("backgroundColor", ev.target.dataSet('backgroundColor'));
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("data-backgroundColor");
-    ev.target.appendChild(document.getElementById(data));
-}
 
 console.log('lunghezzzzaaaaaaaa----->',persone.persone.length );
 var pp = null;
@@ -82,31 +60,12 @@ for(var i=0; i < persone.persone.length; i++) {
     })(persone.persone[i]));
 }
 
-
-    var parola_completa = '';
-    var controllo=false;
-    
-    
     textBox.addEventListener('keyup', (function(event){
         
-        
-        if(event.key == 'Enter') {
-            
-            console.log('entra ciclo::');
-            azioni.ChangeNamePersona(parola_completa);
-            parola_completa = '';
-            
-              
-        }
-        
-       
-        else {
-            
-            
-            parola_completa = azioni.controllo(parola_completa,event.key);
-            console.log('parola_completa', parola_completa);
-      }
-    }));
+     if(event.key == 'Enter') 
+          azioni.ChangeNamePersona();
+
+ }));
     
 
         
@@ -165,22 +124,49 @@ for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
                 
         return function(){
             
-            lettera.classList.add("lettera-loca");
-                
+            
+            if(colori.coloreSelected){
+                console.log("letteraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa::", lettera);
+                lettera.style.color  = colori.coloreSelected;
+                lettera.style.fontSize = "30px";
+            }          
         }   
                 
-    })(titolo.titoloDOM.children[i])); 
+    })(titolo.titoloDOM.children[i]));
+
 
     titolo.titoloDOM.children[i].addEventListener('mouseleave', (function(lettera){
                 
         return function(){
 
             lettera.classList.remove("lettera-loca");
+            lettera.style.color = 'black';
+            lettera.style.fontSize = "25px";
                 
         }   
                 
     })(titolo.titoloDOM.children[i])); 
 
+}
+
+
+for( var i = 0; i < colori.colorsDOM.children.length;i++){
+    colori.colorsDOM.children[i].addEventListener("dragstart", (function(colore){
+        return function(){
+
+            
+            console.log('colore--->', colore);
+                dragAndDrop.allowDrop(colore);
+                dragAndDrop.drag(colore);
+                //dragAndDrop.allowDrop(event);
+                //colore.dragAndDrop.inizioDrag(event);
+                
+                
+                //dragAndDrop.ondragstart(event);
+                
+            
+        }
+    })(colori.colorsDOM.children[i].value));
 }
 
 

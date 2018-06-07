@@ -113,6 +113,11 @@
     max-width: 150px;
     height: auto;
 }
+.dragAndDrop{
+
+    width: 25px;
+    height: 25px;
+}
 
 
 .defaultIcon{
@@ -186,20 +191,23 @@
 
 .lettera-loca {
     font-size: 30px;
-    color: green;
+    color: blac;
 }
 
 .coloreScelto{
     position:absolute;
-    top:20px;
+    top: 20px;
     width: 150px;
     height: 20px;
     background-color: #E8E8E8;
+    vertical-align: middle;
+
 }
 
 .coloreScelto h1{
     font-size: 15px;
     text-align: right;
+    vertical-align: middle;
 }
 
 .dragIcon img{
@@ -368,14 +376,7 @@
 
 /*-----------------------------------------TEMI-----------------------------------------*/
 
-.default{
 
-    font-size: 12px;
-    color: red;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-
-}
 
 .firstTheme{
 

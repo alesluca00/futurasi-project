@@ -28,17 +28,19 @@ class Azioni {
     }
 
 
-    ChangeNamePersona(lettera) {
+    ChangeNamePersona() {
     
         var personeDOMChildren = this.persone.personeDOM.children;
-        var backSpace = 0;
+      
+        var parola = document.getElementById('casellaTesto').value;
+
         for (var i = 0; i < personeDOMChildren.length; i++) {
             if (this.persone.personaSelected && personeDOMChildren[i].fiscale == this.persone.personaSelected){
                 
-                if(lettera != 'BackSpace')
+             
                 var textDiv = personeDOMChildren[i].getElementsByClassName("nome_cognome")[0];
-                textDiv.innerHTML = lettera;
-                console.log("controllo", this.colori.colori[i]);            }
+                textDiv.innerHTML = parola;
+                  }
         }                  
     }
 
@@ -75,12 +77,17 @@ class Azioni {
         var trovato = false;
         for (var i = 0; i < this.persone.persone.length && !trovato; i++) {
 
-            console.log("changetheme", i, this.persone.personaSelected, this.persone.persone[i].fiscale);
+           
             if (this.persone.personaSelected == this.persone.persone[i].fiscale) {
-            
-            this.persone.personeDOM.children[i].classList.add(temi.themeSelected);
-            trovato = true;
-        }
+                this.persone.personeDOM.children[i].classList = '';
+                this.persone.personeDOM.children[i].classList.add('avatar');
+
+                if(temi.themeSelected != 'default'){
+               
+                    this.persone.personeDOM.children[i].classList.add(temi.themeSelected);           
+                    trovato = true;
+                }
+            }
         }
     }
 
@@ -150,43 +157,6 @@ class Azioni {
             }  
         }
     }
-
-    
-    changeLetter(lettere){
-        
-  
-        if(this.colori.coloreSelected){ 
-            
-            lettere.style.color = this.colori.coloreSelected;
-            lettere.style.fontSize = '35px';
-            lettere.style.fontFamily = 'fantasy';   
-        }           
-    }
-  
-
-    controllo(parola_completa, event){
-      
-        if(event != 'Backspace' && event != 'Shift' && event != 'CapsLock'){  
-            console.log('event', event);
-           parola_completa = parola_completa + event;
-           console.log('parola_____completa', parola_completa);
-           
-           
-        }
-        else{
-            var conversione = parola_completa.split('')
-            var lunghezza = conversione.length-1;
-            
-            if(event == 'Backspace'){
-
-                parola_completa = '';
-
-            }
-            for(var i=0; i< lunghezza; i++)
-                return parola_completa = parola_completa + conversione[i];                          
-        }return parola_completa;
-    } 
-    
     
     addAvatar(i){
         

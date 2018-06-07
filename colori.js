@@ -27,8 +27,12 @@ class Colori {
             divcolor_i.style.color = this.colori[i].style.color;
             divcolor_i.classList.add(this.colori[i].style.class);
             divcolor_i.setAttribute('draggable', true);
-            divcolor_i.setAttribute('ondragmove', dragIcon);
-            divcolor_i.setAttribute('ondragstart', 'drag(event)');
+            
+            
+            divcolor_i.setAttribute('ondragstart', this.colori[i].value);
+            divcolor_i.setAttribute('ondrop', 'drop(event)');
+            divcolor_i.setAttribute('ondragover', 'allowDrop(event)');
+
             divcolor_i.setAttribute('data-backgroundColor', this.colori[i].value);
             console.log('drag & drop::', divcolor_i);
 
