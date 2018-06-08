@@ -1,4 +1,3 @@
-
 var server = new Server(); 
 
 var persone = new Persone(server.getPersone());
@@ -18,7 +17,9 @@ var azioni = new Azioni(persone, colori, temi);
 
 var textBox = document.getElementById('textBox');
 
-
+function allowDrop(e){
+    e.preventDefault();
+}
 
 /*******************************************EventListener PERSONA***************************************** */
 var colorDrag = '';
@@ -60,17 +61,24 @@ pulsanteloco.addEventListener('click', (function() {
 
 
 
+
+
+
 console.log('lunghezzzzaaaaaaaa----->',persone.persone.length );
 var pp = null;
 
-for(var i=0; i < persone.persone.length; i++) {
 
+for(var i=0; i < persone.personeDOM.children.length; i++) {
+        
+        
     persone.personeDOM.children[i].addEventListener('click', ((persona) => {
 
         return function() { 
             azioni.resetBorder();
-            azioni.changeBorder(persona.cognome);
             azioni.SelectPersona(persona.fiscale);
+            
+            azioni.changeBorder(persona.cognome);
+            
             
             if (colori.coloreSelected)  
                 azioni.ChangeColorPersona(persona.fiscale);
@@ -80,36 +88,40 @@ for(var i=0; i < persone.persone.length; i++) {
         }
     })(persone.persone[i]));
     
-    persone.personeDOM.children[i].addEventListener('dragover',(function(e, colorDrag){
-       // console.log("index::persona::dragover", e);
+    persone.personeDOM.children[i].addEventListener('dragover',(function(e){
 
-        return function() { 
-            console.log('dragCOLORE--->', colorDrag);
-           console.log("index::persona::dragover", e);
-          console.log('persone.personeDOM.children[i].style',);
-          e.style.backgroundColor = colori.coloreSelected;
+
+      
+        
+       
+       return function() { 
+        e.style.opacity = 0.5;
+          
             
         }
-    })(persone.personeDOM.children[i], colorDrag));
+    })(persone.personeDOM.children[i]));
 
+    persone.personeDOM.children[i].addEventListener('dragleave',(function(e){
 
-   /* persone.personeDOM.children[i].addEventListener('drop', ((e) => {
-        console.log("index::persona::dragover", e);
+     return function() { 
+         e.style.opacity = 1;
+      }
+     })(persone.personeDOM.children[i]));
 
-        return function() { 
-           console.log("index::persona::drop", e);
-            
+    
+    persone.personeDOM.children[i].addEventListener('drop',(function(e) {
+        return function()
+        {
+        
+        e.style.opacity = 1;
+        e.style.backgroundColor = colori.coloreSelected;
+       
         }
-    }));
+      
+        
+    })(persone.personeDOM.children[i]));
 
-    persone.personeDOM.children[i].addEventListener('dropover', ((e) => {
-        console.log("index::persona::dragover", e);
 
-        return function() { 
-           console.log("index::persona::dropover", e);
-            
-        }
-    }));*/
 }
 
     textBox.addEventListener('keyup', (function(event){
@@ -119,16 +131,6 @@ for(var i=0; i < persone.persone.length; i++) {
 
  }));
     
-
-        
-
-
-/*******************************************EventListener COLORI***************************************** */
-
-
- 
-
-
 /*******************************************EventListener TEMI***************************************** */
 
 
@@ -187,72 +189,10 @@ for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
 }
 
 
-/*for( var i = 0; i < colori.colorsDOM.children.length;i++){
-    colori.colorsDOM.children[i].addEventListener("dragstart", (function(div_colore){
-        //console.log('colore--->', event);
-        return function(){*/
-
-
-
-
-
-
-           /* console.log('colore--->', event);
-                //dragAndDrop.allowDrop(colore);*/
-                
-                /*function dragstart(event){
-
-                    event.dataTransfert.setData('text', event.target.id);
-                    console.log('entra bibbi------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-                    event.dataTransfert.effectAllowed = 'copy';
-                    event.dataTransfert.dropEffect = 'copy';
-                    event.dataTransfert.setData('text', event.target.getAttribute('value'));
-                    console.log('colore--->', event);
-
-
-                }
-                
-                function dragOver(event){
-
-                    event.preventDeafault();
-
-                }
-
-                function drop(event){
-
-                    event.preventDeafault();
-                    var data = event.dataTransfert.getData('text');
-                    console.log('data::',data);
-                    event.target.appendChild(document.getElementById(data));    
-                }
-
-                function dragOver(event){
-
-                    event.preventDeafault();
-
-                }
-                function drop(event)
-                {
-                    var nomeImgTrascinata = event.dataTransfert.getData('text');
-                    var oggettoDrop = event.target;
-
-                }*/
-
-                
-                
-                
-                //dragAndDrop.ondragstart(event);
-                
-            
-       /* }
-    })( colori.colorsDOM.children[i]));
-}*/
-
-
 var filepicker = document.getElementById('file-picker');
 
 filepicker.addEventListener("change", (function(divFile){
-    //console.log('colore--->', event);
+  
     return function(){
 
         
@@ -265,8 +205,4 @@ filepicker.addEventListener("change", (function(divFile){
     }
 })(filepicker));
 
-
-
-
-
-
+console.log('prova::', document.getElementsByClassName('addNomeInput')[0].value);

@@ -111,7 +111,7 @@ class Azioni {
     changeBorder(cognome) {
 
         var trovato = false;
-
+        console.log('cognome::',this.persone.persone);
         for (var i = 0; i < this.persone.personeDOM.children.length && !trovato; i++) {
 
             if (this.persone.persone[i].cognome == cognome) {
@@ -222,6 +222,7 @@ class Azioni {
     
     }
 
+    
     
    
 }               

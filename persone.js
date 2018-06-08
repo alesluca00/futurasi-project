@@ -30,18 +30,19 @@ class Persone {
             avatar_i.src = this.persone[i].img;
             bordoNero.appendChild(avatar_i);
             bordoNero.classList.add('bordoNero');
+            
 
             divPersona_i.appendChild(bordoNero);
             divPersona_i.appendChild(divNomeCognome_i);
             divPersona_i.setAttribute("fiscale", this.persone[i].fiscale);
             divPersona_i.setAttribute("nome", this.persone[i].nome);
-
-            
+         
+            divPersona_i.setAttribute('ondragover','allowDrop(event)');
+           
             divPersona_i.classList.add('avatar');
             divPersona_i.fiscale = this.persone[i].fiscale;
             
-            divPersona_i.setAttribute('ondragover', 'dragOver(event)');
-            divPersona_i.ondragover = 'dragOver(event)';
+           
 
             console.log('divPersona_i::', divPersona_i);
 

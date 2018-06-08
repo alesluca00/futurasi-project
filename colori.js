@@ -17,27 +17,15 @@ class Colori {
             var divcolor_i = document.createElement("div");
             
             divcolor_i.setAttribute("value", this.colori[i].value);
-            var dragIcon = document.createElement('img');
-            dragIcon.src = 'https://cdn0.iconfinder.com/data/icons/hands-pt-3/100/051_-_drag-512.png';
-            divcolor_i.setAttribute('dragIcon', dragIcon);
             
-
             divcolor_i.style.backgroundColor = this.colori[i].value;
             divcolor_i.value = this.colori[i].value;
 
             divcolor_i.style.color = this.colori[i].style.color;
             divcolor_i.classList.add(this.colori[i].style.class);
             divcolor_i.setAttribute('draggable', true);
-            divcolor_i.setAttribute('data-risposta', 'https://cdn0.iconfinder.com/data/icons/hands-pt-3/100/051_-_drag-512.png');
-            divcolor_i.datarisposta = 'https://cdn0.iconfinder.com/data/icons/hands-pt-3/100/051_-_drag-512.png';
-           // var drag = document.createElement('div');
             
-            divcolor_i.setAttribute('ondragstart', 'dragstart(event)');
-            divcolor_i.setAttribute('ondrop', 'drop(event)');
-            divcolor_i.ondrop = 'drop(event)';
-            divcolor_i.ondragstart = 'dragstart(event)';
-            //divcolor_i.appendChild(drag);
-
+   
             console.log('div color . value', divcolor_i.value);
             this.colorsDOM.appendChild(divcolor_i);
             console.log('this.colorsDOM.appendChild(divcolor_i);', this.colorsDOM.appendChild(divcolor_i));
