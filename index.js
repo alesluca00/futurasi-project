@@ -21,40 +21,26 @@ var textBox = document.getElementById('textBox');
 
 
 /*******************************************EventListener PERSONA***************************************** */
+var colorDrag = '';
+for (var i=0; i < colori.colori.length ; i++) {
 
+    var domColor = colori.getDomColorById(colori.colori[i].value);
 
-/*for ( var i = 0; i < colori.coloriDOM.children.length; i++)
-{
-function allowDrop(ev) {
-    ev.preventDefault();
-   }
-   var img = new Image();
-   img.src = 'https://cdn0.iconfinder.com/data/icons/hands-pt-3/100/051_-_drag-512.png';
-   
-    var ondragstart = function(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
-        
-        console.log('entra bibbi------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-        event.dataTransfert.effectAllowed = 'copy';
-        event.dataTransfert.dropEffect = 'copy';
-        event.dataTransfert.setData('text', event.target.getAttribute('value'));
-        console.log('colore--->', event);
-   }
+    domColor.addEventListener('mousedown', (function(value) {
 
-   function dragOver(ev)
-   {
-        event.preventDeafault();
-    }
+        return function() {
 
-   
+            azioni.resetBorderColor();
+            azioni.SelectColor(value);
+            azioni.changeBorderColor(colori.coloreSelected);
+           
+        }
 
-   function drop(ev) {
-       ev.preventDefault();
-       var data = ev.dataTransfer.getData("text");
-       ev.target.appendChild(document.getElementById(data));
-   }
+    })(colori.colori[i].value));
 
-}*/
+  
+}
+
 
 
 
@@ -93,16 +79,21 @@ for(var i=0; i < persone.persone.length; i++) {
             
         }
     })(persone.persone[i]));
-
-    persone.personeDOM.children[i].addEventListener('dragover', ((e) => {
-        console.log("index::persona::dragover", e);
+    
+    persone.personeDOM.children[i].addEventListener('dragover',(function(e, colorDrag){
+       // console.log("index::persona::dragover", e);
 
         return function() { 
+            console.log('dragCOLORE--->', colorDrag);
            console.log("index::persona::dragover", e);
+          console.log('persone.personeDOM.children[i].style',);
+          e.style.backgroundColor = colori.coloreSelected;
             
         }
-    }));
-    persone.personeDOM.children[i].addEventListener('drop', ((e) => {
+    })(persone.personeDOM.children[i], colorDrag));
+
+
+   /* persone.personeDOM.children[i].addEventListener('drop', ((e) => {
         console.log("index::persona::dragover", e);
 
         return function() { 
@@ -118,7 +109,7 @@ for(var i=0; i < persone.persone.length; i++) {
            console.log("index::persona::dropover", e);
             
         }
-    }));
+    }));*/
 }
 
     textBox.addEventListener('keyup', (function(event){
@@ -135,22 +126,7 @@ for(var i=0; i < persone.persone.length; i++) {
 /*******************************************EventListener COLORI***************************************** */
 
 
- for (var i=0; i < colori.colori.length ; i++) {
-
-    var domColor = colori.getDomColorById(colori.colori[i].value);
-
-    domColor.addEventListener('click', (function(value) {
-
-        return function() {
-
-            azioni.resetBorderColor();
-            azioni.SelectColor(value);
-            azioni.changeBorderColor(colori.coloreSelected);
-           
-        }
-
-    })(colori.colori[i].value));
-}
+ 
 
 
 /*******************************************EventListener TEMI***************************************** */
