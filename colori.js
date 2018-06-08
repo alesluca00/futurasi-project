@@ -28,7 +28,6 @@ class Colori {
             divcolor_i.style.color = this.colori[i].style.color;
             divcolor_i.classList.add(this.colori[i].style.class);
             divcolor_i.setAttribute('draggable', true);
-            divcolor_i.draggable = true;
             divcolor_i.setAttribute('data-risposta', 'https://cdn0.iconfinder.com/data/icons/hands-pt-3/100/051_-_drag-512.png');
             divcolor_i.datarisposta = 'https://cdn0.iconfinder.com/data/icons/hands-pt-3/100/051_-_drag-512.png';
            // var drag = document.createElement('div');

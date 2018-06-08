@@ -23,6 +23,41 @@ var textBox = document.getElementById('textBox');
 /*******************************************EventListener PERSONA***************************************** */
 
 
+/*for ( var i = 0; i < colori.coloriDOM.children.length; i++)
+{
+function allowDrop(ev) {
+    ev.preventDefault();
+   }
+   var img = new Image();
+   img.src = 'https://cdn0.iconfinder.com/data/icons/hands-pt-3/100/051_-_drag-512.png';
+   
+    var ondragstart = function(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+        
+        console.log('entra bibbi------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+        event.dataTransfert.effectAllowed = 'copy';
+        event.dataTransfert.dropEffect = 'copy';
+        event.dataTransfert.setData('text', event.target.getAttribute('value'));
+        console.log('colore--->', event);
+   }
+
+   function dragOver(ev)
+   {
+        event.preventDeafault();
+    }
+
+   
+
+   function drop(ev) {
+       ev.preventDefault();
+       var data = ev.dataTransfer.getData("text");
+       ev.target.appendChild(document.getElementById(data));
+   }
+
+}*/
+
+
+
 ////////////////////////////////////////////azioni.addAvatar()///////////////////////////////////////////////
 var pulsanteloco = document.getElementById('pulsante-loco');
 
@@ -58,6 +93,32 @@ for(var i=0; i < persone.persone.length; i++) {
             
         }
     })(persone.persone[i]));
+
+    persone.personeDOM.children[i].addEventListener('dragover', ((e) => {
+        console.log("index::persona::dragover", e);
+
+        return function() { 
+           console.log("index::persona::dragover", e);
+            
+        }
+    }));
+    persone.personeDOM.children[i].addEventListener('drop', ((e) => {
+        console.log("index::persona::dragover", e);
+
+        return function() { 
+           console.log("index::persona::drop", e);
+            
+        }
+    }));
+
+    persone.personeDOM.children[i].addEventListener('dropover', ((e) => {
+        console.log("index::persona::dragover", e);
+
+        return function() { 
+           console.log("index::persona::dropover", e);
+            
+        }
+    }));
 }
 
     textBox.addEventListener('keyup', (function(event){
@@ -153,19 +214,25 @@ for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
 /*for( var i = 0; i < colori.colorsDOM.children.length;i++){
     colori.colorsDOM.children[i].addEventListener("dragstart", (function(div_colore){
         //console.log('colore--->', event);
-        return function(){
+        return function(){*/
 
-            */
-            console.log('colore--->', event);
-                //dragAndDrop.allowDrop(colore);
+
+
+
+
+
+           /* console.log('colore--->', event);
+                //dragAndDrop.allowDrop(colore);*/
                 
-                function dragstart(event){
+                /*function dragstart(event){
 
                     event.dataTransfert.setData('text', event.target.id);
-                    console.log('entra bibbi------------------->');
+                    console.log('entra bibbi------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
                     event.dataTransfert.effectAllowed = 'copy';
                     event.dataTransfert.dropEffect = 'copy';
                     event.dataTransfert.setData('text', event.target.getAttribute('value'));
+                    console.log('colore--->', event);
+
 
                 }
                 
@@ -193,7 +260,7 @@ for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
                     var nomeImgTrascinata = event.dataTransfert.getData('text');
                     var oggettoDrop = event.target;
 
-                }
+                }*/
 
                 
                 
@@ -201,10 +268,10 @@ for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
                 //dragAndDrop.ondragstart(event);
                 
             
-      /*  }
+       /* }
     })( colori.colorsDOM.children[i]));
-}
-*/
+}*/
+
 
 var filepicker = document.getElementById('file-picker');
 
