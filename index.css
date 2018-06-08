@@ -123,6 +123,18 @@
     transform: translate(-50%,-50%)
     
 }
+
+.checkBox{
+
+    width: 15px;
+    height: 15px;
+    position:relative;
+    right: 45%;
+ 
+    
+
+
+}
 .bordoNero{
 
     background-color: black;
@@ -130,8 +142,6 @@
     max-width: 150px;
     max-height: 220px;
     height: 100%;
-    
-
 }
 
 
@@ -206,17 +216,28 @@
     
     
 }
+#rimuoviPersona {
+    cursor: pointer;
+  
+    border: 1px solid black;
+    align-content: middle;
+    text-align: center;  
+    width: 300px;
+    height: 50px;
 
-#pulsante-loco {
+    left:3.5%;
+ 
+}
+#pulsante-loco, {
     cursor: pointer;
     border: 1px solid black;
     align-content: middle;
     text-align: center;  
     width: 300px;
     height: 50px;
-    position: absolute;
+  
     left:3.5%;
-    top: 91%; 
+ 
 }
 
 .lettera-loca {

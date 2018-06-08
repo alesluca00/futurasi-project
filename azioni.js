@@ -193,23 +193,33 @@ class Azioni {
        divPersona_i.setAttribute("nome", nome);
        divPersona_i.setAttribute("img", avatar_i);
        divPersona_i.setAttribute("fiscale", fiscale);
+      
+       avatar_i.classList.add('avatar_img');
+      
+       var bordoNero = document.createElement('div');
+       bordoNero.appendChild(avatar_i);
+       bordoNero.classList.add('bordoNero');
+       
+
+       divPersona_i.appendChild(bordoNero);
+       
        
        this.persone.persone[i].nome = nome;
        this.persone.persone[i].cognome = cognome;
-       this.persone.persone[i].fiscale = fiscale;
-       this.persone.persone[i].img = avatar_i.src;
+       
+      
        
         var nomeCognome_i = document.createTextNode(this.persone.persone[i].nome + ' ' + this.persone.persone[i].cognome);
         
         divNomeCognome_i.appendChild(nomeCognome_i);
-        divPersona_i.appendChild(avatar_i);
+        divPersona_i.appendChild(bordoNero);
         divPersona_i.appendChild(divNomeCognome_i);
         
         
         
        
         divPersona_i.classList.add('avatar');
-        divPersona_i.fiscale = this.persone.persone[i].fiscale;
+        
         this.persone.personeDOM.appendChild(divPersona_i);
         
 
@@ -221,9 +231,22 @@ class Azioni {
        }
     
     }
+    deleteAvatar(personaDelete)
+    {   console.log('personaDelete', personaDelete);
+      
+       
+         
+           
+            
+            this.persone.personeDOM.removeChild(this.persone.personeDOM.children[personaDelete]);
 
+           }
+     
+      
     
-    
+
+
+
    
 }               
                 

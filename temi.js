@@ -22,6 +22,7 @@ class Temi{
 
         divtheme_i.classList.add(this.temi[i].style.class);
         divtheme_i.value = this.temi[i].nome;
+        divtheme_i.setAttribute('draggable', true);
     
         var tema_scelto = document.createTextNode(this.temi[i].nome);
         divtheme_i.appendChild(tema_scelto);

@@ -124,13 +124,6 @@ for(var i=0; i < persone.personeDOM.children.length; i++) {
 
 }
 
-    textBox.addEventListener('keyup', (function(event){
-        
-     if(event.key == 'Enter') 
-          azioni.ChangeNamePersona();
-
- }));
-    
 /*******************************************EventListener TEMI***************************************** */
 
 
@@ -141,7 +134,7 @@ for(var i=0; i < temi.temi.length; i++){
     console.log("www", domTemi);
 
 
-    domTemi.addEventListener('click', (function(value) {
+    domTemi.addEventListener('mousedown', (function(value) {
 
         return function() { 
 
@@ -156,7 +149,58 @@ console.log("TEMA SEL: ", value);
 
 
 }
+
+////////////*********************************************DRAG AND DROP TEMI *************************************************/
+console.log('persone.personeDOM.length',persone.personeDOM.children[0]);
+for(var i=0; i < persone.personeDOM.children.length; i++) {
+    {
+            persone.personeDOM.children[i].addEventListener('dragover',(function(e){
+                return function() { 
+                    e.style.opacity = 0.5;
+                }
+            })(persone.personeDOM.children[i]));
+
+            persone.personeDOM.children[i].addEventListener('dragleave',(function(e){
+
+                return function() { 
+                    e.style.opacity = 1;
+                }
+            })(persone.personeDOM.children[i]));
+
+            
+            persone.personeDOM.children[i].addEventListener('drop',(function(e) {
+            return function()
+            {
+            
+            e.style.opacity = 1;
+            console.log('entra::nel::drop');
+            persone.personeDOM.children[i].classList = '';
+            persone.personeDOM.children[i].classList.add('avatar');
+            if(temi.themeSelected != 'default')
+            {
+                e.classList.add(temi.themeSelected);
+            }
+ 
+          
+            
+            }
+        
+            
+        })(persone.personeDOM.children[i]));
+
+    }
+}
+
+    textBox.addEventListener('keyup', (function(event){
+        
+     if(event.key == 'Enter') 
+          azioni.ChangeNamePersona();
+
+ }));
+    
+
 /*******************************************EventListener TITOLI******************************************/
+
 for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
 
     titolo.titoloDOM.children[i].addEventListener('mouseover', (function(lettera){
@@ -191,7 +235,7 @@ for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
 
 var filepicker = document.getElementById('file-picker');
 
-filepicker.addEventListener("change", (function(divFile){
+/*filepicker.addEventListener("change", (function(divFile){
   
     return function(){
 
@@ -203,6 +247,28 @@ filepicker.addEventListener("change", (function(divFile){
             
         
     }
-})(filepicker));
+})(filepicker));*/
 
-console.log('prova::', document.getElementsByClassName('addNomeInput')[0].value);
+var divRimuoviPersona = document.getElementById('rimuoviPersona');
+console.log('divRimuoviPersona', divRimuoviPersona);
+divRimuoviPersona.addEventListener('click', (function(){
+    console.log('entra BB');
+    
+    
+    var lunghezza = document.getElementsByClassName('checkBox').length;
+    console.log(lunghezza);
+
+        for( var i = 0; i < lunghezza; i++ )
+        {
+            
+            var checkBoxValue = document.getElementsByClassName('checkBox')[i];
+            console.log('checkBoxValue', checkBoxValue)
+            if(checkBoxValue.checked == true) 
+                azioni.deleteAvatar(i);
+        }
+
+    
+            
+
+}));
+
