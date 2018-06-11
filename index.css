@@ -8,7 +8,12 @@
     height: 100%;
     
 }
+.pulsanti{
 
+    border:2px solid rgb(184, 182, 182);
+    border-top: 1px solid rgb(184, 182, 182);
+    width: 100%;
+}
 .persone  {
     display: flex;
     height: 100%;
@@ -16,7 +21,18 @@
 }
 
 .azioni {
-    border: 1px solid rgb(184, 182, 182);
+    
+    margin: 0.5rem;
+    display: flex;
+    height: 100%;
+    width: 400px;
+    flex-wrap: wrap;
+    background-color: #E8E8E8;
+
+}
+.addAvatar {
+    
+    
     display: flex;
     height: 100%;
     width: 400px;
@@ -27,7 +43,8 @@
 
 
 .colori {
-    border: 1px solid rgb(184, 182, 182);
+    border: 2px solid rgb(184, 182, 182);
+    border-bottom: 1px solid rgb(184, 182, 182);
     display: flex;
     height: 100%;
     width: 400px;
@@ -35,6 +52,8 @@
 }
 .textBox {
     border: 1px solid rgb(184, 182, 182);
+    border-right: 2px solid rgb(184, 182, 182);
+    border-left: 2px solid rgb(184, 182, 182);
     display: flex;
     height: 100%;
     width: 400px;
@@ -56,6 +75,8 @@
 
 .temi {
     border: 1px solid rgb(184, 182, 182);
+    border-right: 2px solid rgb(184, 182, 182);
+    border-left: 2px solid rgb(184, 182, 182);
     display: flex;
     height: 100%;
     width: 400px;
@@ -98,7 +119,7 @@
     margin: 0.5rem;
     width: 100%;
     max-width: 150px;
-    height: 255px;
+    height: 260px;
     
     border: 1px solid black;
     color: black;
@@ -106,12 +127,16 @@
     box-shadow: none;
     
 }
+.nome_cognome{
 
+    color: black;
+    font-size: 15px;
+}
 .avatar_img{
 
     width: 100%;
     max-width: 150px;
-    max-height: 220px;
+    max-height: 210px;
     height: 100%;
     position:relative;
     top:50%;
@@ -136,11 +161,13 @@
 
 }
 .bordoNero{
-
+    position:relative;
+    border-top: 15px;
+    
     background-color: black;
     width: 100%;
     max-width: 150px;
-    max-height: 220px;
+    max-height: 210px;
     height: 100%;
 }
 
@@ -177,6 +204,7 @@
     height: 40px;
     border: 1px dotted black;
     margin: 0.25rem;
+    position: relative;
     text-align: center;
     vertical-align: middle;
 }
@@ -216,10 +244,39 @@
     
     
 }
+
 .avatarDelete{
+    border-top: 2px dotted red;
+    cursor: no-drop;
     display: flex;
-    height : 100%;
+    height: 100%;    
+    width: 100%;
+    max-width: 852px;
+    flex-wrap: wrap;
+    position: relative;
+    left: 32%;
+
+
+  
 }
+.reset{
+
+    width: 130px;
+    height: 35px;
+    background-color: #E8E8E8;
+    border:  1px solid black;
+    position: relative;
+    margin: 8px;
+    left:80%;
+    cursor: pointer;
+}
+.reset h3{
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
 #rimuoviPersona {
     cursor: pointer;
   
@@ -265,7 +322,7 @@
 }
 
 .coloreScelto h1{
-    font-size: 15px;
+    font-size: 17px;
     text-align: right;
     vertical-align: baseline;
 }
@@ -286,18 +343,31 @@
     background-color: white;
     box-shadow: none;
 }
-.coloreScelto h1{
+.vuoto h1{
 
-    text-align: right;
-    font-size: 16px;
-    
+    font-size: 17px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    color: black;
 }
-
-
-
+.vuoto{
+    border: 1px solid rgb(184, 182, 182);
+    border-right: 2px solid rgb(184, 182, 182);
+    border-left: 2px solid rgb(184, 182, 182);
+    display: flex;
+    height: 35px;
+    width: 400px;
+    flex-wrap: wrap;
+    background-color: white;
+    text-align: center;
+    vertical-align: middle; 
+}
 .addNome{
 
     border: 1px solid rgb(184, 182, 182);
+    border-right: 2px solid rgb(184, 182, 182);
+    border-left: 2px solid rgb(184, 182, 182);
     display: flex;
     height: 100%;
     width: 400px;
@@ -307,14 +377,8 @@
 .addCognome{
 
     border: 1px solid rgb(184, 182, 182);
-    display: flex;
-    height: 100%;
-    width: 400px;
-    flex-wrap: wrap;
-}
-.addImmagine{
-
-    border: 1px solid rgb(184, 182, 182);
+    border-right: 2px solid rgb(184, 182, 182);
+    border-left: 2px solid rgb(184, 182, 182);
     display: flex;
     height: 100%;
     width: 400px;
@@ -323,32 +387,25 @@
 .addFiscale{
 
     border: 1px solid rgb(184, 182, 182);
+    border-right: 2px solid rgb(184, 182, 182);
+    border-left: 2px solid rgb(184, 182, 182);
+    display: flex;
+    height: 100%;
+    width: 400px;
+    flex-wrap: wrap;
+}
+.addImmagine{
+
+    border: 1px solid rgb(184, 182, 182);
+    border-right: 2px solid rgb(184, 182, 182);
+    border-left: 2px solid rgb(184, 182, 182);
     display: flex;
     height: 100%;
     width: 400px;
     flex-wrap: wrap;
 }
 
-.vuoto{
-    border: 1px solid rgb(184, 182, 182);
-    display: flex;
-    height: 25px;
-    width: 400px;
-    flex-wrap: wrap;
-    background-color: white;
-    text-align: center;
-    vertical-align: middle;
-   
-   
-}
-.vuoto h1{
 
-    font-size: 17px;
-    font-weight: bold;
-    width: 100%;
-    text-align: center;
-    color: black;
-}
 
 
 .addNome h1{

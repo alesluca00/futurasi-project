@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Page Title1</title>
+    <title>Futurasi-Project</title>
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
@@ -30,22 +30,32 @@
             </div>
             
         
-            <div class='vuoto'><h1>Add Avatar</h1></div>
-
-            <div class='addNome'><h1>Nome:</h1><input type='text' class='addNomeInput'></div>
-            <div class='addCognome'><h1>Cognome:</h1><input type='text' class='addCognomeInput'></div>
-            <div class='addFiscale'><h1>Fiscale:</h1><input type='text' class='addFiscaleInput'></div>
-            <div class='addImmagine'><h1>Immagine:</h1><input type='text' id="file-picker" class='addImmagineInput'></div>
-            <div id="pulsante-loco">AGGIUNGI PERSONA</div>
-            <div id="rimuoviPersona">RIMUOVI PERSONA</div>
-            </div>      
-
+            <div class='vuoto'><h1>ADD AVATAR</h1></div>
+            <div id='divAddAvatar' class='addAvatar' ondragover='allowDrop(event)' >
+                <div class='addNome'><h1>Nome:</h1><input type='text' class='addNomeInput'></div>
+                <div class='addCognome'><h1>Cognome:</h1><input type='text' class='addCognomeInput'></div>
+                <div class='addFiscale'><h1>Fiscale:</h1><input type='text' class='addFiscaleInput'></div>
+                <div class='addImmagine'><h1>Immagine:</h1><input type='text' id="file-picker" class='addImmagineInput'></div>
+                <div class='pulsanti'>
+                    <div id="pulsante-loco">AGGIUNGI PERSONA</div>
+                    <div id="rimuoviPersona">RIMUOVI PERSONA</div>
+                </div>
             
+            </div>  </div>    
+
+           
 
         
-        <div id="persone" class="persone"></div>
+        <div id="persone" class="persone">
+            
+        </div>  
+        
+        
+    
     </div>
-    <div class='avatarDelete'> </div>
+    <div id='avatarDelete' class='avatarDelete'>
+        <div id='reset' class='reset'><h3>Reset Avatar</h3></div>
+    </div>
 
 </body>
 
@@ -58,5 +68,7 @@
 <script src="insNomi.js"></script>
 <script src="azioni.js"></script>
 <script src="index.js"></script>
+
+
 
 </html>

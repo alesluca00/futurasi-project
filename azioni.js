@@ -83,8 +83,8 @@ class Azioni {
                 this.persone.personeDOM.children[i].classList.add('avatar');
 
                 if(temi.themeSelected != 'default'){
-               
-                    this.persone.personeDOM.children[i].classList.add(temi.themeSelected);           
+                    var cambio = getElementsByClassName('nome_cognome')[i].innerHTML;
+                   cambio.classList.add(temi.themeSelected);           
                     trovato = true;
                 }
             }
@@ -183,7 +183,7 @@ class Azioni {
        var cognome = document.getElementsByClassName('addCognomeInput')[0].value;
        var fiscale = document.getElementsByClassName('addFiscaleInput')[0].value;
 
-       if(nome == '' || cognome =='' || fiscale == '' || avatar_i == '')
+       if(nome == '' || cognome =='' || fiscale == '' || avatar_i.src == '')
        {
            alert('Devi completare TUTTI i campi');
            
@@ -202,7 +202,7 @@ class Azioni {
         var checkBox = document.createElement('input');
         checkBox.classList.add('checkBox');
         checkBox.setAttribute('type', 'checkbox');
-
+        divPersona_i.setAttribute('ondragover','allowDrop(event)');
        divPersona_i.appendChild(bordoNero);
        
        
@@ -225,7 +225,7 @@ class Azioni {
         divPersona_i.classList.add('avatar');
         
         this.persone.personeDOM.appendChild(divPersona_i);
- 
+      
         
        
         console.log('persone.persone',divPersona_i);
@@ -248,13 +248,73 @@ class Azioni {
         console.log('delete::');
     }
      
+    addAvatarDelete(i){
       
-    
+        /////////////////////////////////////////************CREAZIONE NUOVO AVATAR********************************* */
+        var predefinito = { 
+            nome: "",
+            cognome: "",
+            fiscale: "",
+            img: "",
+        }
 
+      
+        var divPersona_i = predefinito;
+
+        var divPersona_i = document.createElement("div");  
+        var avatar_i = document.createElement("img");
+        var divNomeCognome_i = document.createElement("div"); 
+        avatar_i.src = document.getElementsByClassName('avatar_img')[i].src;
+        console.log('document.getElementsByClassName(avatar)[i]', document.getElementsByClassName('avatar')[i]);
+        
+        
+       
+       var nome = document.getElementsByClassName('avatar')[i].nome;
+       var cognome = document.getElementsByClassName('avatar')[i].cognome;
+       var fiscale = document.getElementsByClassName('avatar')[i].fiscale;
+
+      
+       console.log('avatar_i', avatar_i);
+       divPersona_i.setAttribute("nome", nome);
+       divPersona_i.setAttribute("img", avatar_i);
+       divPersona_i.setAttribute("fiscale", fiscale);
+      
+       avatar_i.classList.add('avatar_img');
+      
+       var bordoNero = document.createElement('div');
+       bordoNero.appendChild(avatar_i);
+       bordoNero.classList.add('bordoNero');
+        var checkBox = document.createElement('input');
+        checkBox.classList.add('checkBox');
+        checkBox.setAttribute('type', 'checkbox');
+
+       divPersona_i.appendChild(bordoNero);
+       
+       
+       
+      
+       
+        var nomeCognome_i = document.createTextNode(document.getElementsByClassName('nome_cognome')[i].innerHTML);
+        divPersona_i.appendChild(checkBox); 
+        divNomeCognome_i.appendChild(nomeCognome_i);
+        divPersona_i.appendChild(bordoNero);
+        divPersona_i.appendChild(divNomeCognome_i);
+        divPersona_i.classList.add('avatar');
+        var allocazione = document.getElementById('avatarDelete');
+         allocazione.appendChild(divPersona_i);
+ 
+        
+       
+        
+
+    
+       }
+    
+    }
 
 
    
-}               
+             
                 
         
         

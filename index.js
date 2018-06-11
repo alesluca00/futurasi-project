@@ -1,3 +1,5 @@
+
+
 var server = new Server(); 
 
 var persone = new Persone(server.getPersone());
@@ -17,11 +19,16 @@ var azioni = new Azioni(persone, colori, temi);
 
 var textBox = document.getElementById('textBox');
 
+
+
 function allowDrop(e){
     e.preventDefault();
 }
 
 /*******************************************EventListener PERSONA***************************************** */
+
+
+
 var colorDrag = '';
 for (var i=0; i < colori.colori.length ; i++) {
 
@@ -72,7 +79,7 @@ var pp = null;
 for(var i=0; i < persone.personeDOM.children.length; i++) {
         
         
-    persone.personeDOM.children[i].addEventListener('click', ((persona) => {
+    persone.personeDOM.children[i].addEventListener('mousedown', ((persona) => {
 
         return function() { 
             azioni.resetBorder();
@@ -91,15 +98,9 @@ for(var i=0; i < persone.personeDOM.children.length; i++) {
     
     persone.personeDOM.children[i].addEventListener('dragover',(function(e){
 
-
-      
-        
-       
-       return function() { 
+     return function() { 
         e.style.opacity = 0.5;
-          
-            
-        }
+     }
     })(persone.personeDOM.children[i]));
 
     persone.personeDOM.children[i].addEventListener('dragleave',(function(e){
@@ -124,6 +125,62 @@ for(var i=0; i < persone.personeDOM.children.length; i++) {
 
 
 }
+
+divAddAvatar.addEventListener('dragover',(function(e){
+
+    return function(){
+        for( var i = 0; i < persone.persone.length; i++)
+        {
+                if(persone.persone[i].fiscale == persone.personaSelected){
+                    console.log('personeSelected::', persone.persone[i]);
+                    e.getElementsByClassName('addFiscaleInput')[0].value = persone.persone[i].fiscale;
+                    e.getElementsByClassName('addNomeInput')[0].value = persone.persone[i].nome;
+                    e.getElementsByClassName('addCognomeInput')[0].value = persone.persone[i].cognome;
+                    e.getElementsByClassName('addImmagineInput')[0].value = persone.persone[i].img;
+                    e.style.opacity = 0.5;
+            }
+        }
+    }
+}(divAddAvatar)));
+
+divAddAvatar.addEventListener('dragleave',(function(e){
+
+    return function(){
+        for( var i = 0; i < persone.persone.length; i++)
+        {
+                if(persone.persone[i].fiscale == persone.personaSelected){
+                   
+                    e.getElementsByClassName('addFiscaleInput')[0].value = '';
+                    e.getElementsByClassName('addNomeInput')[0].value = '';
+                    e.getElementsByClassName('addCognomeInput')[0].value = '';
+                    e.getElementsByClassName('addImmagineInput')[0].value = '';
+                    e.style.opacity = 1;
+            }
+        }
+    }
+}(divAddAvatar)));
+
+divAddAvatar.addEventListener('drop',(function(e){
+
+    return function(){
+        for( var i = 0; i < persone.persone.length; i++)
+        {
+                if(persone.persone[i].fiscale == persone.personaSelected){
+                    e.getElementsByClassName('addFiscaleInput')[0].value = persone.persone[i].fiscale;
+                    e.getElementsByClassName('addNomeInput')[0].value = persone.persone[i].nome;
+                    e.getElementsByClassName('addCognomeInput')[0].value = persone.persone[i].cognome;
+                    e.getElementsByClassName('addImmagineInput')[0].value = persone.persone[i].img;
+                    
+                    e.style.opacity = 1;
+            }
+        }
+    }
+}(divAddAvatar)));
+
+
+
+
+
 
 /*******************************************EventListener TEMI***************************************** */
 
@@ -152,44 +209,52 @@ console.log("TEMA SEL: ", value);
 }
 
 ////////////*********************************************DRAG AND DROP TEMI *************************************************/
+var divInnerText = document.getElementsByClassName('nome_cognome');
+console.log('divInnerText', divInnerText[0].innerHTML);
 console.log('persone.personeDOM.length',persone.personeDOM.children[0]);
-for(var i=0; i < persone.personeDOM.children.length; i++) {
+for(var i=0; i < divInnerText.length; i++) {
+    
+       
+            
+    divInnerText[i].addEventListener('drop',(function(e) {
+    return function()
     {
-            persone.personeDOM.children[i].addEventListener('dragover',(function(e){
-                return function() { 
-                    e.style.opacity = 0.5;
-                }
-            })(persone.personeDOM.children[i]));
+    e.classList = '';
+    e.classList.add('nome_cognome');
+    if(temi.themeSelected != 'default')
+        {
+            if(temi.themeSelected== 'firstTheme')
+                e.classList.add('firstTheme');
 
-            persone.personeDOM.children[i].addEventListener('dragleave',(function(e){
-
-                return function() { 
-                    e.style.opacity = 1;
-                }
-            })(persone.personeDOM.children[i]));
-
-            
-            persone.personeDOM.children[i].addEventListener('drop',(function(e) {
-            return function()
-            {
-            
-            e.style.opacity = 1;
-            console.log('entra::nel::drop');
-            persone.personeDOM.children[i].classList = '';
-            persone.personeDOM.children[i].classList.add('avatar');
-            if(temi.themeSelected != 'default')
-            {
-                e.classList.add(temi.themeSelected);
-            }
- 
-          
-            
-            }
-        
-            
-        })(persone.personeDOM.children[i]));
-
+            else e.classList.add('secondTheme');
+        }
     }
+    })(divInnerText[i]));
+
+    divInnerText[i].addEventListener('dragover',(function(e) {
+        return function()
+        {
+        e.classList = '';
+        e.classList.add('nome_cognome');
+        if(temi.themeSelected != 'default')
+            {
+                if(temi.themeSelected== 'firstTheme')
+                    e.classList.add('firstTheme');
+    
+                else e.classList.add('secondTheme');
+            }
+        }
+        })(divInnerText[i]));
+
+        divInnerText[i].addEventListener('dragleave',(function(e) {
+        return function()
+        {
+        e.classList = '';
+        e.classList.add('nome_cognome');
+        
+        }
+        })(divInnerText[i]));
+
 }
 
     textBox.addEventListener('keyup', (function(event){
@@ -249,16 +314,18 @@ var filepicker = document.getElementById('file-picker');
         
     }
 })(filepicker));*/
-
+var arrayOfAvatarDelete = '';
+var i = 0;
 var divRimuoviPersona = document.getElementById('rimuoviPersona');
 console.log('divRimuoviPersona', divRimuoviPersona);
-divRimuoviPersona.addEventListener('click', (function(value){
+divRimuoviPersona.addEventListener('click', (function(value,i){
     return function(){
     
     
     
     //var lunghezza = 
     //console.log(lunghezza);
+    
         var checkBoxed = document.getElementsByClassName('checkBox');
         console.error('checkBoxed', checkBoxed);
 
@@ -271,6 +338,8 @@ divRimuoviPersona.addEventListener('click', (function(value){
             var checkBoxValue = checkBoxed[trueIndex];
             if(checkBoxValue.checked == true) {
                 console.error('checkBoxValue', checkBoxValue);
+                azioni.addAvatarDelete(trueIndex)
+                i++;
                 azioni.deleteAvatar(trueIndex);
             } else {
                 trueIndex++;
@@ -280,5 +349,50 @@ divRimuoviPersona.addEventListener('click', (function(value){
     
             
     }
-})(divRimuoviPersona));
 
+})(divRimuoviPersona, i));
+
+reset.addEventListener('mouseover', (function(button){
+    return function(){
+
+        button.style.border = '3px dotted red';
+    }
+}(reset)));
+reset.addEventListener('mouseleave', (function(button){
+    return function(){
+
+        button.style.border = '1px solid black';
+    }
+}(reset)));
+
+reset.addEventListener('mousedown', (function(button){
+    return function(){
+
+        window.location.reload();
+    }
+}(reset)))
+
+
+console.log("index:: JSON.stringify(colori.colori)", JSON.stringify(colori.colori));
+window.localStorage.setItem("colori.colori", JSON.stringify(colori.colori));
+var stringRemoved = window.localStorage.getItem("colori.colori");
+
+var removedAgain = JSON.parse(stringRemoved);
+
+console.log("index:: JSON.parse(stringRemoved )",  JSON.parse(stringRemoved));
+
+console.log("index:: JSON.stringify(persone.persone)", JSON.stringify(persone.persone));
+window.localStorage.setItem("persone.persone", JSON.stringify(persone.persone));
+var stringRemoved = window.localStorage.getItem("persone.persone");
+
+var removedAgain = JSON.parse(stringRemoved);
+
+console.log("index:: JSON.parse(stringRemoved )",  JSON.parse(stringRemoved));
+
+console.log("index:: JSON.stringify(temi.temi)", JSON.stringify(temi.temi));
+window.localStorage.setItem("temi.temi", JSON.stringify(temi.temi));
+var stringRemoved = window.localStorage.getItem("temi.temi");
+
+var removedAgain = JSON.parse(stringRemoved);
+
+console.log("index:: JSON.parse(stringRemoved )",  JSON.parse(stringRemoved));

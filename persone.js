@@ -26,7 +26,7 @@ class Persone {
             var checkBox = document.createElement('input');
             checkBox.classList.add('checkBox');
             checkBox.setAttribute('type', 'checkbox');
-            
+            divPersona_i.draggable = true;
             var avatar_i = document.createElement("img");
             var bordoNero = document.createElement('div');
             avatar_i.classList.add('avatar_img');
