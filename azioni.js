@@ -157,9 +157,9 @@ class Azioni {
             }  
         }
     }
-    
+
     addAvatar(i){
-        
+      
         /////////////////////////////////////////************CREAZIONE NUOVO AVATAR********************************* */
         var predefinito = { 
             nome: "",
@@ -186,10 +186,10 @@ class Azioni {
        if(nome == '' || cognome =='' || fiscale == '' || avatar_i == '')
        {
            alert('Devi completare TUTTI i campi');
+           
        }
        else{
        console.log('avatar_i', avatar_i);
-       
        divPersona_i.setAttribute("nome", nome);
        divPersona_i.setAttribute("img", avatar_i);
        divPersona_i.setAttribute("fiscale", fiscale);
@@ -199,7 +199,9 @@ class Azioni {
        var bordoNero = document.createElement('div');
        bordoNero.appendChild(avatar_i);
        bordoNero.classList.add('bordoNero');
-       
+        var checkBox = document.createElement('input');
+        checkBox.classList.add('checkBox');
+        checkBox.setAttribute('type', 'checkbox');
 
        divPersona_i.appendChild(bordoNero);
        
@@ -210,10 +212,12 @@ class Azioni {
       
        
         var nomeCognome_i = document.createTextNode(this.persone.persone[i].nome + ' ' + this.persone.persone[i].cognome);
-        
+        divPersona_i.appendChild(checkBox); 
         divNomeCognome_i.appendChild(nomeCognome_i);
         divPersona_i.appendChild(bordoNero);
         divPersona_i.appendChild(divNomeCognome_i);
+       
+       
         
         
         
@@ -221,8 +225,7 @@ class Azioni {
         divPersona_i.classList.add('avatar');
         
         this.persone.personeDOM.appendChild(divPersona_i);
-        
-
+ 
         
        
         console.log('persone.persone',divPersona_i);
@@ -232,15 +235,18 @@ class Azioni {
     
     }
     deleteAvatar(personaDelete)
-    {   console.log('personaDelete', personaDelete);
-      
-       
-         
-           
-            
-            this.persone.personeDOM.removeChild(this.persone.personeDOM.children[personaDelete]);
+    {   
+        
+        console.log('personaDelete', personaDelete);
+        var element = document.getElementsByClassName('avatar')[personaDelete];
+        element.parentNode.removeChild(element);
+        this.persone.persone.splice(personaDelete, 1);
+        
+        console.log('(this.persone.personeDOM.children', this.persone.personeDOM.children);
+        console.log('(this.persone.persone', this.persone.persone);
 
-           }
+        console.log('delete::');
+    }
      
       
     

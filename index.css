@@ -216,6 +216,10 @@
     
     
 }
+.avatarDelete{
+    display: flex;
+    height : 100%;
+}
 #rimuoviPersona {
     cursor: pointer;
   
@@ -224,20 +228,25 @@
     text-align: center;  
     width: 300px;
     height: 50px;
-
-    left:3.5%;
- 
+    border: 1px solid black;
+    margin: 0.75rem;
+    position: relative;
+    left: 8.5%;
+    line-height: 50px;; /* verticale */
+    box-shadow: none;
 }
-#pulsante-loco, {
+#pulsante-loco {
+    position: relative;
+    line-height: 50px;; /* verticale */
+    margin: 0.75rem;
     cursor: pointer;
     border: 1px solid black;
     align-content: middle;
     text-align: center;  
     width: 300px;
     height: 50px;
-  
-    left:3.5%;
- 
+    left: 8.5%;
+    box-shadow: none;
 }
 
 .lettera-loca {

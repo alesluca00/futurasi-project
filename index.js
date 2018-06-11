@@ -48,16 +48,17 @@ for (var i=0; i < colori.colori.length ; i++) {
 ////////////////////////////////////////////azioni.addAvatar()///////////////////////////////////////////////
 var pulsanteloco = document.getElementById('pulsante-loco');
 
-pulsanteloco.addEventListener('click', (function() {
+
+pulsanteloco.addEventListener('click', (function(value) {
     return function(){
         
         console.log("pulsanteloco::clicked");
         var i = persone.personeDOM.children.length;
         
-        azioni.addAvatar(i);
-        
+       azioni.addAvatar(i)
+     
     }
-})());
+})(pulsanteloco));
 
 
 
@@ -251,24 +252,33 @@ var filepicker = document.getElementById('file-picker');
 
 var divRimuoviPersona = document.getElementById('rimuoviPersona');
 console.log('divRimuoviPersona', divRimuoviPersona);
-divRimuoviPersona.addEventListener('click', (function(){
-    console.log('entra BB');
+divRimuoviPersona.addEventListener('click', (function(value){
+    return function(){
     
     
-    var lunghezza = document.getElementsByClassName('checkBox').length;
-    console.log(lunghezza);
+    
+    //var lunghezza = 
+    //console.log(lunghezza);
+        var checkBoxed = document.getElementsByClassName('checkBox');
+        console.error('checkBoxed', checkBoxed);
 
-        for( var i = 0; i < lunghezza; i++ )
+        var trueIndex = 0;
+
+
+       do
         {
             
-            var checkBoxValue = document.getElementsByClassName('checkBox')[i];
-            console.log('checkBoxValue', checkBoxValue)
-            if(checkBoxValue.checked == true) 
-                azioni.deleteAvatar(i);
-        }
+            var checkBoxValue = checkBoxed[trueIndex];
+            if(checkBoxValue.checked == true) {
+                console.error('checkBoxValue', checkBoxValue);
+                azioni.deleteAvatar(trueIndex);
+            } else {
+                trueIndex++;
+            }
+        }while(trueIndex<=persone.persone.length);
 
     
             
-
-}));
+    }
+})(divRimuoviPersona));
 
