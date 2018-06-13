@@ -292,6 +292,22 @@
     line-height: 50px;; /* verticale */
     box-shadow: none;
 }
+
+#modificaPersona {
+    cursor: pointer;
+  
+    border: 1px solid black;
+    align-content: middle;
+    text-align: center;  
+    width: 300px;
+    height: 50px;
+    border: 1px solid black;
+    margin: 0.75rem;
+    position: relative;
+    left: 8.5%;
+    line-height: 50px;; /* verticale */
+    box-shadow: none;
+}
 #pulsante-loco {
     position: relative;
     line-height: 50px;; /* verticale */

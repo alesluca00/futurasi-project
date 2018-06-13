@@ -26,6 +26,10 @@ var azioni = new Azioni(persone, colori, temi);
 var textBox = document.getElementById('textBox');
 
 
+
+
+
+
 console.log('persone::array', persone.persone);
 function allowDrop(e){
     e.preventDefault();
@@ -57,19 +61,21 @@ for (var i=0; i < colori.colori.length ; i++) {
 
 
 
-
+var divAddAvatar;
 ////////////////////////////////////////////azioni.addAvatar()///////////////////////////////////////////////
 var pulsanteloco = document.getElementById('pulsante-loco');
+divAddAvatar = document.getElementById('divAddAvatar');
 
-
-pulsanteloco.addEventListener('click', (function(value) {
+pulsanteloco.addEventListener('mousedown', (function(value) {
     return function(){
-        
+        pulsanteloco.backgroundColor = 'rgb(184, 182, 182)';
         console.log("pulsanteloco::clicked");
         var i = personeDOM.children.length;
         
-       azioni.addAvatar(i)
-       console.log('persone::index.js::', persone);
+
+        azioni.addAvatar(i)
+        console.log('persona da inserire::', persone.persone[i]);
+        server.inserisci(persone.persone[i]);
        
      
     }
@@ -130,7 +136,8 @@ for(var i=0; i < personeDOM.children.length; i++) {
 
 }
 
-divAddAvatar = document.getElementById('divAddAvatar');
+var fiscaleSelected = null;
+
 
 divAddAvatar.addEventListener('dragover',(function(e){
 
@@ -138,6 +145,7 @@ divAddAvatar.addEventListener('dragover',(function(e){
         for( var i = 0; i < persone.persone.length; i++)
         {
                 if(persone.persone[i].fiscale == persone.personaSelected){
+                    
                     console.log('personeSelected::', persone.persone[i]);
                     e.getElementsByClassName('addFiscaleInput')[0].value = persone.persone[i].fiscale;
                     e.getElementsByClassName('addNomeInput')[0].value = persone.persone[i].nome;
@@ -176,14 +184,51 @@ divAddAvatar.addEventListener('drop',(function(e){
                     e.getElementsByClassName('addNomeInput')[0].value = persone.persone[i].nome;
                     e.getElementsByClassName('addCognomeInput')[0].value = persone.persone[i].cognome;
                     e.getElementsByClassName('addImmagineInput')[0].value = persone.persone[i].img;
-                    
+                    fiscaleSelected = persone.persone[i].fiscale;
+
                     e.style.opacity = 1;
+                    return fiscaleSelected;
             }
         }
+       
     }
 }(divAddAvatar)));
 
 
+
+ 
+        var ModificaValori = document.getElementById('modificaPersona');
+        console.log('modificavalori::', ModificaValori);
+        ModificaValori.addEventListener('mousedown', (function(div){
+            return function(){
+                div.style.backgroundColor = 'rgb(184, 182, 182)';
+                
+                for(var i = 0; i < persone.persone.length; i++){
+                    
+                  
+
+                    if(persone.persone[i].fiscale == fiscaleSelected ){
+                        
+                        
+                        persone.persone[i].nome = divAddAvatar.getElementsByClassName('addNomeInput')[0].value;
+                        persone.persone[i].cognome = divAddAvatar.getElementsByClassName('addCognomeInput')[0].value; 
+                        persone.persone[i].img = divAddAvatar.getElementsByClassName('addImmagineInput')[0].value;
+                        persone.persone[i].fiscale = divAddAvatar.getElementsByClassName('addFiscaleInput')[0].value;
+                        personeDOM.children[i].getElementsByClassName('nome_cognome')[0].innerHTML = persone.persone[i].nome +' ' + persone.persone[i].cognome;
+
+                        
+                        server.modificaPersona(persone.persone[i]);
+                    }
+                }
+            }
+        }(ModificaValori)));
+
+        ModificaValori.addEventListener('mouseup', (function(div){
+           return function(){
+
+              div.style.backgroundColor = '#E8E8E8';
+           } 
+        }(ModificaValori)));
 
 
 
@@ -311,14 +356,14 @@ var filepicker = document.getElementById('file-picker');
 var arrayOfAvatarDelete = '';
 var i = 0;
 var divRimuoviPersona = document.getElementById('rimuoviPersona');
-console.log('divRimuoviPersona', divRimuoviPersona);
-divRimuoviPersona.addEventListener('click', (function(value,i){
+
+divRimuoviPersona.addEventListener('mousedown', (function(value,i){
     return function(){
     
     
 
         var checkBoxed = document.getElementsByClassName('checkBox');
-        console.error('checkBoxed', checkBoxed);
+
 
         var trueIndex = 0;
 
@@ -332,10 +377,11 @@ divRimuoviPersona.addEventListener('click', (function(value,i){
                 azioni.addAvatarDelete(trueIndex)
                 i++;
                 azioni.deleteAvatar(trueIndex);
+                server.rimuovi(persoe.persone[trueIndex]);
             } else {
                 trueIndex++;
             }
-        }while(trueIndex< persone.length);
+        }while(trueIndex< persone.persone.length);
 
     
             

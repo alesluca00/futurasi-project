@@ -189,10 +189,10 @@ class Azioni {
            
        }
        else{
-       console.log('avatar_i', avatar_i);
-       divPersona_i.setAttribute("nome", nome);
-       divPersona_i.setAttribute("img", avatar_i);
-       divPersona_i.setAttribute("fiscale", fiscale);
+        console.log('avatar_i', avatar_i);
+        divPersona_i.setAttribute("nome", nome);
+       
+        divPersona_i.setAttribute("fiscale", fiscale);
       
         avatar_i.classList.add('avatar_img');
        
@@ -208,6 +208,9 @@ class Azioni {
        
        this.persone.persone[i].nome = nome;
        this.persone.persone[i].cognome = cognome;
+       this.persone.persone[i].fiscale = fiscale;
+       this.persone.persone[i].img = avatar_i.src;
+
        
       
        
@@ -216,33 +219,24 @@ class Azioni {
         divNomeCognome_i.appendChild(nomeCognome_i);
         divPersona_i.appendChild(bordoNero);
         divPersona_i.appendChild(divNomeCognome_i);
-       
-       
-        
-        
-        
-       
         divPersona_i.classList.add('avatar');
         this.persone.personeDOM.appendChild(divPersona_i);
         console.log('  this.persone.personeDOM',  new Persone(server.getPersone()));
-      
-        return this.persone.personeDOM //new Persone(server.getPersone());
+        return this.persone.persone[i]; 
+
         
        }
     
     }
     deleteAvatar(personaDelete)
     {   
-        
-        console.log('personaDelete', personaDelete);
+   
         var element = document.getElementsByClassName('avatar')[personaDelete];
         element.parentNode.removeChild(element);
         this.persone.persone.splice(personaDelete, 1);
         
-        console.log('(this.persone.personeDOM.children', this.persone.personeDOM.children);
-        console.log('(this.persone.persone', this.persone.persone);
+        server.modificaPersona(persone.persone[i]);
 
-        console.log('delete::');
     }
      
     addAvatarDelete(i){
