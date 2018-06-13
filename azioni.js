@@ -224,10 +224,10 @@ class Azioni {
        
         divPersona_i.classList.add('avatar');
         this.persone.personeDOM.appendChild(divPersona_i);
-        window.localStorage.setItem("persone", JSON.stringify(this.persone.persone));
-        console.log('persone.persone',divPersona_i);
-        console.log('persone::azioni.js::', this.persone);
-        this.persone.toView();
+        console.log('  this.persone.personeDOM',  new Persone(server.getPersone()));
+      
+        return this.persone.personeDOM //new Persone(server.getPersone());
+        
        }
     
     }

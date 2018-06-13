@@ -4,6 +4,7 @@ var server = new Server();
 
 var persone = new Persone(server.getPersone());
 persone.toView();
+console.log('persone::toView::', persone);
 
 //var stringOfPersone = localStorage.getItem('persone');
 //var persone = [];
@@ -68,6 +69,8 @@ pulsanteloco.addEventListener('click', (function(value) {
         var i = personeDOM.children.length;
         
        azioni.addAvatar(i)
+       console.log('persone::index.js::', persone);
+       
      
     }
 })(pulsanteloco));
@@ -127,16 +130,18 @@ for(var i=0; i < personeDOM.children.length; i++) {
 
 }
 
+divAddAvatar = document.getElementById('divAddAvatar');
+
 divAddAvatar.addEventListener('dragover',(function(e){
 
     return function(){
         for( var i = 0; i < persone.persone.length; i++)
         {
-                if(persone[i].fiscale == persone.personaSelected){
+                if(persone.persone[i].fiscale == persone.personaSelected){
                     console.log('personeSelected::', persone.persone[i]);
-                    e.getElementsByClassName('addFiscaleInput')[0].value = persone[i].fiscale;
-                    e.getElementsByClassName('addNomeInput')[0].value = persone[i].nome;
-                    e.getElementsByClassName('addCognomeInput')[0].value = persone[i].cognome;
+                    e.getElementsByClassName('addFiscaleInput')[0].value = persone.persone[i].fiscale;
+                    e.getElementsByClassName('addNomeInput')[0].value = persone.persone[i].nome;
+                    e.getElementsByClassName('addCognomeInput')[0].value = persone.persone[i].cognome;
                     e.getElementsByClassName('addImmagineInput')[0].value = persone.persone[i].img;
                     e.style.opacity = 0.5;
             }
@@ -149,7 +154,7 @@ divAddAvatar.addEventListener('dragleave',(function(e){
     return function(){
         for( var i = 0; i < persone.persone.length; i++)
         {
-                if(persone.persone[i].fiscale == personaSelected){
+                if(persone.persone[i].fiscale == persone.personaSelected){
                    
                     e.getElementsByClassName('addFiscaleInput')[0].value = '';
                     e.getElementsByClassName('addNomeInput')[0].value = '';
@@ -167,10 +172,10 @@ divAddAvatar.addEventListener('drop',(function(e){
         for( var i = 0; i < persone.persone.length; i++)
         {
                 if(persone.persone[i].fiscale == persone.personaSelected){
-                    e.getElementsByClassName('addFiscaleInput')[0].value = persone[i].fiscale;
-                    e.getElementsByClassName('addNomeInput')[0].value = persone[i].nome;
-                    e.getElementsByClassName('addCognomeInput')[0].value = persone[i].cognome;
-                    e.getElementsByClassName('addImmagineInput')[0].value = persone[i].img;
+                    e.getElementsByClassName('addFiscaleInput')[0].value = persone.persone[i].fiscale;
+                    e.getElementsByClassName('addNomeInput')[0].value = persone.persone[i].nome;
+                    e.getElementsByClassName('addCognomeInput')[0].value = persone.persone[i].cognome;
+                    e.getElementsByClassName('addImmagineInput')[0].value = persone.persone[i].img;
                     
                     e.style.opacity = 1;
             }
@@ -302,19 +307,7 @@ for (var i = 0; i < titolo.titoloDOM.children.length; i++) {
 
 var filepicker = document.getElementById('file-picker');
 
-/*filepicker.addEventListener("change", (function(divFile){
-  
-    return function(){
 
-        
-
-        let persona = persone.personeDOM.children[0];
-        persona.getElementsByTagName('img')[0].src = 'img/' + divFile.value.split('\\')[divFile.value.split('\\').length - 1];
-            
-            
-        
-    }
-})(filepicker));*/
 var arrayOfAvatarDelete = '';
 var i = 0;
 var divRimuoviPersona = document.getElementById('rimuoviPersona');
@@ -323,10 +316,7 @@ divRimuoviPersona.addEventListener('click', (function(value,i){
     return function(){
     
     
-    
-    //var lunghezza = 
-    //console.log(lunghezza);
-    
+
         var checkBoxed = document.getElementsByClassName('checkBox');
         console.error('checkBoxed', checkBoxed);
 
@@ -376,20 +366,4 @@ reset.addEventListener('mousedown', (function(button){
 console.log('persone::index.js::', persone);
 
 
-window.localStorage.setItem("colori.colori", JSON.stringify(colori.colori));
-var stringRemoved = window.localStorage.getItem("colori.colori");
-
-var removedAgain = JSON.parse(stringRemoved);
-
-
-window.localStorage.setItem("persone.persone", JSON.stringify(persone));
-var stringRemoved = window.localStorage.getItem("persone.persone");
-
-var removedAgain = JSON.parse(stringRemoved);
-
-
-window.localStorage.setItem("temi.temi", JSON.stringify(temi.temi));
-var stringRemoved = window.localStorage.getItem("temi.temi");
-
-var removedAgain = JSON.parse(stringRemoved);
 

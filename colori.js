@@ -21,8 +21,9 @@ class Colori {
             divcolor_i.style.backgroundColor = this.colori[i].value;
             divcolor_i.value = this.colori[i].value;
 
-            divcolor_i.style.color = this.colori[i].style.color;
-            divcolor_i.classList.add(this.colori[i].style.class);
+          
+
+    divcolor_i.classList.add('elem_tabella_colori');
             divcolor_i.setAttribute('draggable', true);
             
    
