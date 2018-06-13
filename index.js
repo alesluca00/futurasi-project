@@ -82,7 +82,9 @@ pulsanteloco.addEventListener('mousedown', (function(value) {
 })(pulsanteloco));
 
 
-
+document.addEventListener('contextmenu',( function() {
+    console.log("You've tried to open context menu", event.clientX, event.clientY); //here you draw your own menu
+}));//, false);
 
 
 
@@ -92,6 +94,9 @@ for(var i=0; i < personeDOM.children.length; i++) {
     personeDOM.children[i].addEventListener('mousedown', ((persona) => {
 
         return function() { 
+            switch(event.button){
+            case 0:
+            {
             azioni.resetBorder();
             azioni.SelectPersona(persona.fiscale);
             
@@ -102,7 +107,14 @@ for(var i=0; i < personeDOM.children.length; i++) {
                 azioni.ChangeColorPersona(persona.fiscale);
             if(temi.themeSelected) 
                azioni.ChangeTheme();
+            break;
+            }
             
+            case 2:
+            {
+            
+            }
+        }
         }
     })(persone.persone[i]));
     
@@ -112,6 +124,7 @@ for(var i=0; i < personeDOM.children.length; i++) {
         e.style.opacity = 0.5;
      }
     })(personeDOM.children[i]));
+
 
     personeDOM.children[i].addEventListener('dragleave',(function(e){
 
