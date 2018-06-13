@@ -1,6 +1,3 @@
-
-
-
 class Persone {
 
     constructor(persone) {

@@ -1,113 +1,11 @@
 class Server {
 
     getPersone() {
-        return [{
-                nome: "Francesco",
-                cognome: "Ferrante",
-                fiscale: "AAB",
-                img: "img/ferrante.jpg",
-                style: {
-            
-                    class:"avatar",
-                    backgroundColor: "white",
-                }
-            }, {
-                nome: "Franco",
-                cognome: "Cason",
-                fiscale: "AAC",
-                img: "img/cason.png",
-                style: {
-                    class:"avatar",
-                }
-            }, {
-                nome: "Luigi",
-                cognome: "Rossi",
-                fiscale: "QAB",
-                img: "img/rossi.jpg",
-                style: {
-                    class:"avatar",
-                }
-            }, {
-                nome: "Anna",
-                cognome: "Bianchi",
-                fiscale: "ABB",
-                img: "img/bianchi.jpg",
-                style: {
-                    class: "avatar",
-                }
-            },
-            {
-                nome: "Carla",
-                cognome: "Neri",
-                fiscale: "ZBB",
-                img: "img/neri.jpeg",
-            
-                style: {
-                    class: "avatar",
-            }
-            },
-            {
-                nome: "Mario",
-                cognome: "Verdi",
-                fiscale: "QWB",
-                img: "img/verdi.jpeg",
-                style: {
-                    class: "avatar",
-                }
-            },
-            {
-                nome: "Sara",
-                cognome: "Marroni",
-                fiscale: "MBB",
-                img: "img/marroni.jpg",
-            
-                style: {
-                    class: "avatar",
-                }
-            },
-            {
-                nome: "Guido",
-                cognome: "Piano",
-                fiscale: "PBB",
-                img: "img/piano.jpg",
-                style: {
-                    class: "avatar",
-                }
-            },{
-                nome: "Felice",
-                cognome: "Severo",
-                fiscale: "SBB",
-                img: "img/severo.jpg",
-                style: {
-                    class: "avatar",
-                } 
-            },{
-                nome: "Guido",
-                cognome: "Collauto",
-                fiscale: "SBC",
-                img: "img/collauto.jpg",
-                style: {
-                    class: "avatar",
-                } 
-            },{
-                nome: "Carla",
-                cognome: "Rizzoli",
-                fiscale: "SBT",
-                img: "img/rizzoli.jpg",
-                style: {
-                    class: "avatar",
-                }
-            },{
-
-                nome: "Daniel",
-                cognome: "Barazza",
-                fiscale: "SBP",
-                img: "img/barazza.jpg",
-                style: {
-                    class: "avatar",
-                }
-            }];
-}
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "http://localhost:4000/persone", false ); // false for synchronous request
+        xmlHttp.send( null );
+        return JSON.parse(xmlHttp.response);
+    }
 
     getColori() {
         return [{

@@ -194,16 +194,16 @@ class Azioni {
        divPersona_i.setAttribute("img", avatar_i);
        divPersona_i.setAttribute("fiscale", fiscale);
       
-       avatar_i.classList.add('avatar_img');
-      
-       var bordoNero = document.createElement('div');
-       bordoNero.appendChild(avatar_i);
-       bordoNero.classList.add('bordoNero');
+        avatar_i.classList.add('avatar_img');
+       
+        var bordoNero = document.createElement('div');
+        bordoNero.appendChild(avatar_i);
+        bordoNero.classList.add('bordoNero');
         var checkBox = document.createElement('input');
         checkBox.classList.add('checkBox');
         checkBox.setAttribute('type', 'checkbox');
         divPersona_i.setAttribute('ondragover','allowDrop(event)');
-       divPersona_i.appendChild(bordoNero);
+        divPersona_i.appendChild(bordoNero);
        
        
        this.persone.persone[i].nome = nome;
@@ -223,14 +223,11 @@ class Azioni {
         
        
         divPersona_i.classList.add('avatar');
-        
         this.persone.personeDOM.appendChild(divPersona_i);
-      
-        
-       
+        window.localStorage.setItem("persone", JSON.stringify(this.persone.persone));
         console.log('persone.persone',divPersona_i);
-
-    
+        console.log('persone::azioni.js::', this.persone);
+        this.persone.toView();
        }
     
     }
@@ -272,7 +269,7 @@ class Azioni {
        var nome = document.getElementsByClassName('avatar')[i].nome;
        var cognome = document.getElementsByClassName('avatar')[i].cognome;
        var fiscale = document.getElementsByClassName('avatar')[i].fiscale;
-
+        avatar_i.setAttribute('draggable', false);
       
        console.log('avatar_i', avatar_i);
        divPersona_i.setAttribute("nome", nome);
@@ -287,7 +284,7 @@ class Azioni {
         var checkBox = document.createElement('input');
         checkBox.classList.add('checkBox');
         checkBox.setAttribute('type', 'checkbox');
-
+        divPersona_i.setAttribute('draggable', false);
        divPersona_i.appendChild(bordoNero);
        
        

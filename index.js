@@ -1,9 +1,14 @@
 
 
-var server = new Server(); 
+var server = new Server();
 
 var persone = new Persone(server.getPersone());
 persone.toView();
+
+//var stringOfPersone = localStorage.getItem('persone');
+//var persone = [];
+//persone = JSON.parse(stringOfPersone);
+//persone.toView();
 
 var colori = new Colori(server.getColori());
 colori.toView();
@@ -20,15 +25,15 @@ var azioni = new Azioni(persone, colori, temi);
 var textBox = document.getElementById('textBox');
 
 
-
+console.log('persone::array', persone.persone);
 function allowDrop(e){
     e.preventDefault();
 }
 
+
 /*******************************************EventListener PERSONA***************************************** */
 
-
-
+var personeDOM = document.getElementById('persone');
 var colorDrag = '';
 for (var i=0; i < colori.colori.length ; i++) {
 
@@ -60,7 +65,7 @@ pulsanteloco.addEventListener('click', (function(value) {
     return function(){
         
         console.log("pulsanteloco::clicked");
-        var i = persone.personeDOM.children.length;
+        var i = personeDOM.children.length;
         
        azioni.addAvatar(i)
      
@@ -72,14 +77,10 @@ pulsanteloco.addEventListener('click', (function(value) {
 
 
 
-console.log('lunghezzzzaaaaaaaa----->',persone.persone.length );
-var pp = null;
-
-
-for(var i=0; i < persone.personeDOM.children.length; i++) {
+for(var i=0; i < personeDOM.children.length; i++) {
         
         
-    persone.personeDOM.children[i].addEventListener('mousedown', ((persona) => {
+    personeDOM.children[i].addEventListener('mousedown', ((persona) => {
 
         return function() { 
             azioni.resetBorder();
@@ -96,22 +97,22 @@ for(var i=0; i < persone.personeDOM.children.length; i++) {
         }
     })(persone.persone[i]));
     
-    persone.personeDOM.children[i].addEventListener('dragover',(function(e){
+    personeDOM.children[i].addEventListener('dragover',(function(e){
 
      return function() { 
         e.style.opacity = 0.5;
      }
-    })(persone.personeDOM.children[i]));
+    })(personeDOM.children[i]));
 
-    persone.personeDOM.children[i].addEventListener('dragleave',(function(e){
+    personeDOM.children[i].addEventListener('dragleave',(function(e){
 
      return function() { 
          e.style.opacity = 1;
       }
-     })(persone.personeDOM.children[i]));
+     })(personeDOM.children[i]));
 
     
-    persone.personeDOM.children[i].addEventListener('drop',(function(e) {
+    personeDOM.children[i].addEventListener('drop',(function(e) {
         return function()
         {
         
@@ -121,7 +122,7 @@ for(var i=0; i < persone.personeDOM.children.length; i++) {
         }
       
         
-    })(persone.personeDOM.children[i]));
+    })(personeDOM.children[i]));
 
 
 }
@@ -131,11 +132,11 @@ divAddAvatar.addEventListener('dragover',(function(e){
     return function(){
         for( var i = 0; i < persone.persone.length; i++)
         {
-                if(persone.persone[i].fiscale == persone.personaSelected){
+                if(persone[i].fiscale == persone.personaSelected){
                     console.log('personeSelected::', persone.persone[i]);
-                    e.getElementsByClassName('addFiscaleInput')[0].value = persone.persone[i].fiscale;
-                    e.getElementsByClassName('addNomeInput')[0].value = persone.persone[i].nome;
-                    e.getElementsByClassName('addCognomeInput')[0].value = persone.persone[i].cognome;
+                    e.getElementsByClassName('addFiscaleInput')[0].value = persone[i].fiscale;
+                    e.getElementsByClassName('addNomeInput')[0].value = persone[i].nome;
+                    e.getElementsByClassName('addCognomeInput')[0].value = persone[i].cognome;
                     e.getElementsByClassName('addImmagineInput')[0].value = persone.persone[i].img;
                     e.style.opacity = 0.5;
             }
@@ -148,7 +149,7 @@ divAddAvatar.addEventListener('dragleave',(function(e){
     return function(){
         for( var i = 0; i < persone.persone.length; i++)
         {
-                if(persone.persone[i].fiscale == persone.personaSelected){
+                if(persone.persone[i].fiscale == personaSelected){
                    
                     e.getElementsByClassName('addFiscaleInput')[0].value = '';
                     e.getElementsByClassName('addNomeInput')[0].value = '';
@@ -166,10 +167,10 @@ divAddAvatar.addEventListener('drop',(function(e){
         for( var i = 0; i < persone.persone.length; i++)
         {
                 if(persone.persone[i].fiscale == persone.personaSelected){
-                    e.getElementsByClassName('addFiscaleInput')[0].value = persone.persone[i].fiscale;
-                    e.getElementsByClassName('addNomeInput')[0].value = persone.persone[i].nome;
-                    e.getElementsByClassName('addCognomeInput')[0].value = persone.persone[i].cognome;
-                    e.getElementsByClassName('addImmagineInput')[0].value = persone.persone[i].img;
+                    e.getElementsByClassName('addFiscaleInput')[0].value = persone[i].fiscale;
+                    e.getElementsByClassName('addNomeInput')[0].value = persone[i].nome;
+                    e.getElementsByClassName('addCognomeInput')[0].value = persone[i].cognome;
+                    e.getElementsByClassName('addImmagineInput')[0].value = persone[i].img;
                     
                     e.style.opacity = 1;
             }
@@ -210,8 +211,8 @@ console.log("TEMA SEL: ", value);
 
 ////////////*********************************************DRAG AND DROP TEMI *************************************************/
 var divInnerText = document.getElementsByClassName('nome_cognome');
-console.log('divInnerText', divInnerText[0].innerHTML);
-console.log('persone.personeDOM.length',persone.personeDOM.children[0]);
+
+console.log('persone.personeDOM.length',personeDOM.children[0]);
 for(var i=0; i < divInnerText.length; i++) {
     
        
@@ -344,7 +345,7 @@ divRimuoviPersona.addEventListener('click', (function(value,i){
             } else {
                 trueIndex++;
             }
-        }while(trueIndex<=persone.persone.length);
+        }while(trueIndex< persone.length);
 
     
             
@@ -372,27 +373,23 @@ reset.addEventListener('mousedown', (function(button){
     }
 }(reset)))
 
+console.log('persone::index.js::', persone);
 
-console.log("index:: JSON.stringify(colori.colori)", JSON.stringify(colori.colori));
+
 window.localStorage.setItem("colori.colori", JSON.stringify(colori.colori));
 var stringRemoved = window.localStorage.getItem("colori.colori");
 
 var removedAgain = JSON.parse(stringRemoved);
 
-console.log("index:: JSON.parse(stringRemoved )",  JSON.parse(stringRemoved));
 
-console.log("index:: JSON.stringify(persone.persone)", JSON.stringify(persone.persone));
-window.localStorage.setItem("persone.persone", JSON.stringify(persone.persone));
+window.localStorage.setItem("persone.persone", JSON.stringify(persone));
 var stringRemoved = window.localStorage.getItem("persone.persone");
 
 var removedAgain = JSON.parse(stringRemoved);
 
-console.log("index:: JSON.parse(stringRemoved )",  JSON.parse(stringRemoved));
 
-console.log("index:: JSON.stringify(temi.temi)", JSON.stringify(temi.temi));
 window.localStorage.setItem("temi.temi", JSON.stringify(temi.temi));
 var stringRemoved = window.localStorage.getItem("temi.temi");
 
 var removedAgain = JSON.parse(stringRemoved);
 
-console.log("index:: JSON.parse(stringRemoved )",  JSON.parse(stringRemoved));
