@@ -1,20 +1,97 @@
-#persona_visualizzata{
-    width: 500px;
-    height: 500px;
+.persona_visualizzata{
+    
+    
+    display: flex;
+    height: 100%;    
+    width: 100%;
+    flex-wrap: wrap;
+
+
 }
 
 .avatar{
-    
+
         padding: 3px;
         text-align: center;
         margin: 0.5rem;
         width: 100%;
-        max-width: 150px;
-        height: 260px;
+        max-width: 300px;
+        height: 600px;
         border: 1px solid black;
         color: black;
         background-color: white;
         box-shadow: none;
         
     
+}
+
+.avatar img{
+    
+    width: 100%;
+    max-width: 300px;
+    max-height: 400px;
+    height: 100%;
+    position:relative;
+  top: 50%;
+    left:50%;
+    -webkit-transform: translate(-50%,-50%); 
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%,-50%)
+    
+
+} 
+
+.bordoNero{
+    position:relative;
+    border-top: 15px;
+    
+    background-color: black;
+    width: 100%;
+    max-width: 300px;
+    max-height: 500px;
+    height: 100%;
+}
+
+.nome_cognome{
+
+    font-size : 30px;
+    position: relative;
+   top : 20px;
+}
+
+.checkBox{
+
+    width: 15px;
+    height: 15px;
+    position:relative;
+    right: 45%;
+}
+.Descrizione{
+    left: 40%;
+    position: absolute;
+    font-size: 30px;
+    top: 1.5%;
+    left: 25%;
+}
+
+.textArea{
+    position: absolute;
+    top: 6%;
+    width: 300%;
+    height: 100%;
+    left: 25%;
+}
+.addDescription{
+    position: relative;
+    line-height: 50px;; /* verticale */
+    margin: 0.75rem;
+    cursor: pointer;
+    border: 1px solid black;
+    align-content: middle;
+    text-align: center;  
+    width: 300px;
+    height: 50px;
+    box-shadow: none;
 }

@@ -292,7 +292,7 @@ class Azioni {
         divPersona_i.appendChild(divNomeCognome_i);
         divPersona_i.classList.add('avatar');
         var allocazione = document.getElementById('avatarDelete');
-         allocazione.appendChild(divPersona_i);
+        allocazione.appendChild(divPersona_i);
  
         
        
