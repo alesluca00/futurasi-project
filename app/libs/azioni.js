@@ -230,10 +230,7 @@ class Azioni {
     }
     deleteAvatar(personaDelete)
     {   
-        if(persone.personaSelected==null)
-        {
-            alert("Ci godo");
-        }
+      
         var element = document.getElementsByClassName('avatar')[personaDelete];
         element.parentNode.removeChild(element);
         this.persone.persone.splice(personaDelete, 1);

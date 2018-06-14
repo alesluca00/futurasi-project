@@ -1,5 +1,7 @@
 class Server {
 
+    //address = "https://futurasi-server.herokuapp.com/";
+
     getPersone() {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", "http://localhost:9000/persone", false ); // false for synchronous request
@@ -19,11 +21,26 @@ class Server {
 
     }
 
+    getPersonaByFiscale(persona) {
+
+        
+        var xmlHttp = new XMLHttpRequest();
+        console.log('persona::', persona);
+        xmlHttp.open( "GET", "http://localhost:9000/getPersona/?" + persona, false ); // false for synchronous request
+        xmlHttp.send( null);
+        console.log("modificaPersona::res", xmlHttp);
+        return JSON.parse(xmlHttp.response);
+
+
+    }
+
+  
+
     inserisci(persona){
 
         var stringaQuery = "nome=" + persona.nome + "&cognome=" + persona.cognome +"&fiscale=" + persona.fiscale + "&img=" + persona.img;
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", "http://localhost:9000/modifica_persona/?" + stringaQuery, false ); // false for synchronous request
+        xmlHttp.open( "GET", "http://localhost:9000/inserisci_persona/?" + stringaQuery, false ); // false for synchronous request
         xmlHttp.send( null);
         console.log("modificaPersona::res", xmlHttp.response);
         return JSON.parse(xmlHttp.response);

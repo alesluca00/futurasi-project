@@ -7,12 +7,13 @@ class Persone {
         this.personaSelected = null;
 
         this.personeDOM = document.getElementById('persone');
+
     }
 
 
 
     toView() {
-
+        console.log('this.personeDOM::', this.personeDOM);
         for (var i = 0; i < this.persone.length; i++) {
 
             var divPersona_i = document.createElement("div");
@@ -39,13 +40,13 @@ class Persone {
             divPersona_i.setAttribute("nome", this.persone[i].nome);
          
             divPersona_i.setAttribute('ondragover','allowDrop(event)');
-           
+           console.log('personaaaaaaaaaaaaaaaaaa', divPersona_i);
             divPersona_i.classList.add('avatar');
             divPersona_i.fiscale = this.persone[i].fiscale;
             
            
 
-            console.log('divPersona_i::', divPersona_i);
+            
 
             this.personeDOM.appendChild(divPersona_i);
         

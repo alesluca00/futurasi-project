@@ -104,7 +104,7 @@ for(var i=0; i < personeDOM.children.length; i++) {
                     var divApri = document.getElementById('Apri');
                     divApri.addEventListener('mousedown', (function(e){
                             console.log("index::CCCCCCCCCCCCCCCCCCCCC")
-                            window.location = "localhost:8000/persona?fiscale=" + "";
+                            window.location = "/persona?fiscale=" + fiscaleSelected;
                         
                     }), false);
 
@@ -121,6 +121,14 @@ for(var i=0; i < personeDOM.children.length; i++) {
                             fiscaleSelected = persone.personaSelected;
 
                    });
+                   var divApri = document.getElementById('Apri');
+                    divApri.addEventListener('mousedown', (function(e){
+                            console.log("index::CCCCCCCCCCCCCCCCCCCCC")
+                            fiscaleSelected = persone.personaSelected;
+
+                            window.location = "/persona?fiscale=" + fiscaleSelected;
+                        
+                    }), false);
                    
                    divApri.addEventListener('mouseover', function(){
                     divApri.style.backgroundColor = 'rgb(184, 182, 182)';
@@ -139,12 +147,9 @@ for(var i=0; i < personeDOM.children.length; i++) {
                      var divRimuovi = document.getElementById('Rimuovi');
 
                     divRimuovi.addEventListener('mousedown', function(){
-                        return function(){
+                       
                             var trovato = false;
-                            divRimuovi.style.backgroundColor = 'rgb(184, 182, 182)';
-
-                           
-                            for( var i = 0; i < persone.persone.length && !trovato; i++){
+                                for( var i = 0; i < persone.persone.length && !trovato; i++){
 
                                 if(persone.personaSelected == persone.persone[i].fiscale){
 
@@ -152,7 +157,7 @@ for(var i=0; i < personeDOM.children.length; i++) {
                                     azioni.deleteAvatar(i);
                                     trovato = true;
                                 } 
-                            }  
+                            
                         }
                     });
 
@@ -448,6 +453,7 @@ divRimuoviPersona.addEventListener('mousedown', (function(value,i){
     return function(){
     
     
+        divRimuoviPersona.style.backgroundColor = 'rgb(184, 182, 182)';
 
         var checkBoxed = document.getElementsByClassName('checkBox');
 
@@ -470,11 +476,21 @@ divRimuoviPersona.addEventListener('mousedown', (function(value,i){
             }
         }while(trueIndex< persone.persone.length);
 
+        if(trueIndex == persone.persone.length)
+        alert('Devi selezionare una persona');
+        divRimuoviPersona.style.backgroundColor = '#E8E8E8';
     
             
     }
 
 })(divRimuoviPersona, i));
+
+divRimuoviPersona.addEventListener('mouseup', (function(div){
+    return function(){
+
+       div.style.backgroundColor = '#E8E8E8';
+    } 
+ }(divRimuoviPersona)));
 
 reset.addEventListener('mouseover', (function(button){
     return function(){
