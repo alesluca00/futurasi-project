@@ -3,7 +3,7 @@
 
 <head>
     <title>Futurasi-Project</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 
 
@@ -30,7 +30,7 @@
             </div>
             
         
-            <div class='vuoto'><h1>ADD AVATAR</h1></div>
+            <div class='vuoto'><h1>AVATAR</h1></div>
             <div id='divAddAvatar' class='addAvatar' ondragover='allowDrop(event)' >
                 <div class='addNome'><h1>Nome:</h1><input type='text' class='addNomeInput'></div>
                 <div class='addCognome'><h1>Cognome:</h1><input type='text' class='addCognomeInput'></div>
@@ -60,15 +60,21 @@
 
 </body>
 
-<script src="server.js"></script>
-<script src="titolo.js"></script>
-<script src="persone.js"></script>
-<script src="dragAndDrop.js"></script>
-<script src="colori.js"></script>
-<script src="temi.js"></script>
+<script src="services/server.js"></script>
+<script src="libs/titolo.js"></script>
+<script src="libs/persone.js"></script>
+<script src="libs/colori.js"></script>
+<script src="libs/temi.js"></script>
 
-<script src="azioni.js"></script>
-<script src="index.js"></script>
+<script src="libs/azioni.js"></script>
+<script src="controllers/index.js"></script>
+
+<menu id='contextMenu'>
+    <menu class='menuvari'  id= 'Apri'><h1>Apri</h1></menu>
+    <menu class='menuvari'  id= 'Modifica'><h1>Modifica</h1></menu>
+    <menu class='menuvari' id= 'Rimuovi'><h1>Rimuovi</h1></menu>
+
+</menu>
 
 
 
