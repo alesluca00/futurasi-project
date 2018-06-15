@@ -26,29 +26,60 @@ var azioni = new Azioni(persone, colori, temi);
 var textBox = document.getElementById('textBox');
 
 
-
-
-
-$( document ).ready(function() {
-    //una volta caricato il DOM esegui questo codice
-    //console.log( "DOM ready!" );
-        $(window).load(function() {
-        //una volta caricata l'intera pagina (immagini e i frames..) esegui questo codice
-        //console.log( "Page ready!" );
-        //faccio scomparire l'immagine di caricamento
-        $(".loader").fadeOut("slow");
-    });
-});
-
-
-
-
-
-
 console.log('persone::array', persone.persone);
 function allowDrop(e){
     e.preventDefault();
 }
+
+
+var divSearch = document.getElementsByClassName('button')[0]
+var divtestoRicerca = document.getElementsByClassName('text')[0];
+divtestoRicerca.addEventListener('keydown', ( function(){
+    for( var i = 0; i < persone.persone.length; i++){
+        
+        var prova = document.getElementsByClassName('avatar')[i];
+        if(event.key != null)
+        prova.style.opacity = 0.5;
+        else 
+        prova.style.opacity = 1;
+         
+           
+
+        divSearch.addEventListener('mousedown', ( function(){
+            var ricerca = document.getElementById('search').value;
+            for( var i = 0; i < persone.persone.length; i++){
+                var prova = document.getElementsByClassName('avatar')[i];
+                prova.style.opacity = 0.5;
+
+                if(persone.persone[i].nome == ricerca){
+                    console.log('persona sel::', persone.persone[i]);
+                    
+                    prova.style.border = '2px solid red';
+                    prova.style.opacity = 1;
+                    //persone.persone[i].style.border = '2px solid red';
+                    console.log('ricerca ::', prova);
+
+                }
+            }
+}));
+
+    }
+}));
+
+
+divtestoRicerca.addEventListener('keyup', ( function(){
+    for( var i = 0; i < persone.persone.length; i++){
+        var vuoto = document.getElementById('search').value;
+        if( vuoto == '')
+        {
+            var prova = document.getElementsByClassName('avatar')[i];
+            prova.style.border = '1px solid black';
+            prova.style.opacity = 1;
+        }
+}}));
+       
+
+
 
 
 /*******************************************EventListener PERSONA***************************************** */

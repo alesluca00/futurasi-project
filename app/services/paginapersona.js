@@ -6,12 +6,6 @@ var prova = window.location.search.substring(1);
 var array = prova.split('=');
 
 var fiscaleSelected = array[1].toString();
-/*var persona = server.getPersonaByFiscale(personaa);
-var xmlHttp = new XMLHttpRequest();
-xmlHttp.open( "GET", "http://localhost:9000/persone", false ); // false for synchronous request
-xmlHttp.send( null );
-var prova = JSON.parse(xmlHttp.response);
-console.log('prova::', persona);*/
 
   
 
