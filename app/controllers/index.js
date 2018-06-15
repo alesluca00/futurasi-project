@@ -29,6 +29,21 @@ var textBox = document.getElementById('textBox');
 
 
 
+$( document ).ready(function() {
+    //una volta caricato il DOM esegui questo codice
+    //console.log( "DOM ready!" );
+        $(window).load(function() {
+        //una volta caricata l'intera pagina (immagini e i frames..) esegui questo codice
+        //console.log( "Page ready!" );
+        //faccio scomparire l'immagine di caricamento
+        $(".loader").fadeOut("slow");
+    });
+});
+
+
+
+
+
 
 console.log('persone::array', persone.persone);
 function allowDrop(e){
@@ -76,6 +91,7 @@ pulsanteloco.addEventListener('mousedown', (function(value) {
         azioni.addAvatar(i)
         console.log('persona da inserire::', persone.persone[i]);
         server.inserisci(persone.persone[i]);
+        location.reload();
        
      
     }
@@ -119,6 +135,8 @@ for(var i=0; i < personeDOM.children.length; i++) {
                             console.log('entra-------------->');
                             azioni.stampaDati(persone.personaSelected, divAddAvatar);
                             fiscaleSelected = persone.personaSelected;
+                                        
+
 
                    });
                    var divApri = document.getElementById('Apri');
@@ -154,7 +172,12 @@ for(var i=0; i < personeDOM.children.length; i++) {
                                 if(persone.personaSelected == persone.persone[i].fiscale){
 
                                     azioni.addAvatarDelete(i);
+                                    console.log('persone.persone[i]::', persone.persone[i]);
+
+                                    server.eliminaPersona(persone.persone[i]);
                                     azioni.deleteAvatar(i);
+                                    
+                                    location.reload();
                                     trovato = true;
                                 } 
                             
@@ -296,12 +319,12 @@ divAddAvatar.addEventListener('drop',(function(e){
                 div.style.backgroundColor = 'rgb(184, 182, 182)';
                 
                 for(var i = 0; i < persone.persone.length; i++){
-                    
+                    console.log('fiscaleSelected', persone.personaSelected);
                   
 
-                    if(persone.persone[i].fiscale == fiscaleSelected ){
+                    if(persone.persone[i].fiscale == persone.personaSelected ){
                         
-                        console.log('nomeeeeeeeeeeeeeeeeeeeeeee::', divAddAvatar.getElementsByClassName('addNomeInput')[0].value );
+                       
                         persone.persone[i].nome = divAddAvatar.getElementsByClassName('addNomeInput')[0].value;
                         persone.persone[i].cognome = divAddAvatar.getElementsByClassName('addCognomeInput')[0].value; 
                         persone.persone[i].img = divAddAvatar.getElementsByClassName('addImmagineInput')[0].value;
@@ -310,6 +333,8 @@ divAddAvatar.addEventListener('drop',(function(e){
 
                         
                         server.modificaPersona(persone.persone[i]);
+                        location.reload();
+
                     }
                 }
             }
@@ -468,9 +493,9 @@ divRimuoviPersona.addEventListener('mousedown', (function(value,i){
             if(checkBoxValue.checked == true) {
                 console.error('checkBoxValue', checkBoxValue);
                 azioni.addAvatarDelete(trueIndex)
+
                 i++;
                 azioni.deleteAvatar(trueIndex);
-                server.rimuovi(persoe.persone[trueIndex]);
             } else {
                 trueIndex++;
             }

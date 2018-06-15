@@ -132,6 +132,20 @@
     color: black;
     font-size: 15px;
 }
+.txt{
+
+    position: relative;
+    left: 45%;
+
+  
+}
+.btn{
+
+    position: relative;
+    left: 28%;
+
+  
+}
 .avatar_img{
 
     width: 100%;
@@ -554,7 +568,22 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: oblique;
     text-align: left;
-
 }
+
+
+
+.loader {
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: #fafafa url(https://www.drogbaster.it/loading/loading40.gif) no-repeat center center;
+    text-align: center;
+    color: #999;
+}
+
 
 

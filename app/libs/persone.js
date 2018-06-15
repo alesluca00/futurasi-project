@@ -38,7 +38,8 @@ class Persone {
             divPersona_i.appendChild(divNomeCognome_i);
             divPersona_i.setAttribute("fiscale", this.persone[i].fiscale);
             divPersona_i.setAttribute("nome", this.persone[i].nome);
-         
+            divPersona_i.setAttribute('descrizione', '');
+            divPersona_i.descrizione = '';
             divPersona_i.setAttribute('ondragover','allowDrop(event)');
            console.log('personaaaaaaaaaaaaaaaaaa', divPersona_i);
             divPersona_i.classList.add('avatar');

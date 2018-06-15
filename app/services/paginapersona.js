@@ -16,8 +16,7 @@ console.log('prova::', persona);*/
   
 
 var persone = server.getPersone();
-
- 
+var personaSelected;
     
 
 
@@ -30,6 +29,10 @@ for( var i = 0; i < persone.length; i++)
     
     if(persone[i].fiscale == fiscaleSelected){
         console.log('persone', persone[i]);
+        
+        
+        
+        personaSelected = persone[i];
         var divPersona_i = document.createElement("div");
         var divNomeCognome_i = document.createElement("div");
         var nomeCognome_i = document.createTextNode(persone[i].nome + ' ' + persone[i].cognome);
@@ -55,29 +58,53 @@ for( var i = 0; i < persone.length; i++)
         
     
         divPersona_i.setAttribute('ondragover','allowDrop(event)');
-        console.log('divpersona::', divPersona_i);
+        //console.log('divpersona::', divPersona_i);
     
         divPersona_i.classList.add('avatar');
-        console.log('provic', document.body);
+        //console.log('provic', document.body);
         var allocazione = document.getElementById('persona_visualizzata');
         allocazione.appendChild(divPersona_i);
     }
 }
 
-var addDescription = document.getElementsByClassName("addDescription")[0];
-console.log(addDescription);
 
-addDescription.addEventListener("mousedown", function(){
+    var addDescription = document.getElementsByClassName("addDescription")[0];
+    console.log('ciao',addDescription);
+    console.log(document);
+
+    addDescription.addEventListener("mousedown", function(){
+
+        
     
         addDescription.style.backgroundColor = "red";
-        var textArea = document.getElementsByClassName("textArea")[0].textContent;   //sistemare
-        console.log("Testo::", textArea);
-});
+        var contenutoTextArea = document.getElementById("testo").value;   //sistemare
+        
+        var personaDOM = document.getElementsByClassName('avatar')[0];
+        personaDOM.setAttribute('descrizione',contenutoTextArea );
 
-addDescription.addEventListener("mouseup", function(){
+        personaSelected.descrizione = contenutoTextArea;
+        console.log('BB',personaSelected);
+            var nome = personaSelected.nome;
+            console.log('nomeeeeeeeeee::', nome);
+            var cognome = personaSelected.cognome;
+            var fiscale = personaSelected.fiscale;
+            var img = personaSelected.img;
+            var descrizione = personaSelected.descrizione;
+            server.modificaPersona(personaSelected);
+            console.log('BBB',personaSelected);
+            location.reload();
 
-    addDescription.style.backgroundColor = "white"; 
-    
-});
+         
+    });
+
+    addDescription.addEventListener("mouseup", function(){
+
+        addDescription.style.backgroundColor = "white"; 
+        
+    });
+
+    document.getElementsByClassName('viewDescription')[0].innerHTML =  personaSelected.descrizione;
+
+
 
 
